@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<link rel="shortcut icon" href="{{ url_for('static', filename='fav.png') }}">
+
+	<title>Çetele - Anasayfa</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+		integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+		integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+
+</head>
+
+<body class="align-middle">
+	<a href="/" style="color:white;text-decoration:none;margin-top:5px;margin-left:5px;">Çıkış Yap <i
+			class="fa fa-sign-out-alt" style="margin-left: 10px;"></i></a>
+	<button class="fal fa-table" style="color:white;background:none;border:0px;position:absolute;top:1%;right:1%"
+		onclick="OnClickOpenThatLink()">
+	</button>
+	<button style="color:lightgray;background:none;border:0px;position:absolute;top:6%;right:1%"
+		onclick="window.location.assign('/settings/teacher/{{username}}/{{password}}/{{mailext}}')"
+		class="fad fa-user-cog"></button>
+	<button class="fad fa-paper-plane" style="color:white;background:none;border:0px;position:absolute;top:11%;right:1%"  
+			onclick="window.location.assign('/SendHomework/{{username}}/{{password}}/{{mailext}}')">
+
+	</button>
+	<br>
+
+
+
+
+	{% if studentNotFound == True %}
+	<br>
+	<br>
+	<div class="alert alert-warning float-right fixed-top">HATA - Böyle bir öğrenci bulunmamakta !
+		<a style="text-decoration: none;text-decoration:none" href=""><i class="far fa-times-circle"></i></a>
+	</div>
+	{% endif %}
+	<div class="container">
+		<h1>Hoşgeldiniz {{ teachername }}</h1>
+
+		<div class="col-md-8">
+
+
+			<button class="btn btn-light" onclick="HideStudents()">Öğrencilerim <i
+					class="fas fa-arrows-alt-v"></i></button>
+			<button class="btn btn-light" style="margin-left:10px" onclick="AddStudent()">Öğrenci Ekle <i
+					class="fas fa-plus"></i></button>
+
+			
+			<br><br>
+			<div id="studentAdd" style="display: none;">
+				<form action="" method="POST">
+					<input type="text" name="studentUsername" placeholder="Öğrenci Kullanıcı Adı..." required>
+					<input type="number" placeholder="Öğrenci Numarası..." name="SchoolNumber" style="width: 30%;"
+						required>
+					<input type="submit" value="Ekle" name="submit" class="btn btn-dark">
+
+				</form>
+				<br>
+			</div>
+			<div class="pop-up bar" id="students" style="color:black">
+				<ul class="list-group">
+					{% for student in students %}
+					<li class="list-group-item" onmouseover="setDisplayOnHover('{{ student }}')"
+						onmouseout="setDisplayOnHover('{{ student }}')">
+						{{ student }} <a style="margin-left: 10px;"></a>
+						<span class="badge badge-danger badge-pill" style="transition: 0.5;">
+							<form action="" method="POST">
+								<input type="submit" style="background: none;border:0px;color:white;display: none;"
+									value="Sil" id="{{ student }}" style="display: none;" name="submit">
+
+								<input id="{{ student }}X" name="HoverStudentIs" style="display: none;">
+
+							</form>
+
+
+						</span>
+						<span class="badge badge-primary left" onclick="viewStudent('{{ student }}')">
+							<button style="background: none;border:0px;color:white;display: none;" id="{{ student }}Y"
+								onclick="ViewStudent('{{ student }}')">Görüntüle <i class="fas fa-eye"></i></button>
+						</span>
+					</li>
+					{% endfor %}
+
+				</ul>
+			</div>
+			<div id="branchHere" style="display:none">
+				<p style="color-white">Branşınız:</p>
+				<button onclick="linkopener('maths')" class="btn" style="color:white">Matematik</button><br>
+				<button onclick="linkopener('science')" class="btn " style="color:white">Fen</button><br>
+				<button onclick="linkopener('turkish')" class="btn" style="color:white">Türkçe</button><br>
+				<button onclick="linkopener('english')" class="btn" style="color:white">İngilizce</button><br>
+				<button onclick="linkopener('religion')" class="btn" style="color:white">Din</button><br>
+				<button onclick="linkopener('ataturkism')" class="btn" style="color:white">Inkılap Tarihi</button><br>
+			</div>
+			<br>
+			<button class="btn btn-light" style="border: 2px;"
+				onclick="window.open('/ZoomConnect4TeachersAndUsername={{ username }}+pwd={{ password }}+mailext={{ mailextention }}')">Canlı
+				Ders Ekle</button><br><br><button class="btn btn-light" style="font-family: monospace;"
+				onclick="window.location.assign('/book/{{username}}/{{password}}/{{mailext}}')">Kitap AI 1.0 <i
+					class="fas fa-robot"></i></button><br><br>
+		</div>
+		<style type="text/css">
+			.someinfo {
+
+				top: 40%;
+				text-align: center;
+			}
+		</style>
+		<script>
+			function circleit(movement) {
+				if (movement == "second") {
+					document.getElementById("play").className = "far fa-play"
+				}
+				if (movement == "first") {
+					document.getElementById("play").className = "far fa-play-circle"
+				}
+
+
+
+			}
+		</script>
+		<style>
+			body {
+				background: #0390fc;
+				color: white;
+			}
+
+			#btn-it:focus {
+				outline: none;
+			}
+
+			#btn-it {
+				outline: none
+			}
+		</style>
+		<script>
+			function AddStudent() {
+
+				var displayer = document.getElementById('studentAdd').style.display
+
+				if (displayer == "") {
+					document.getElementById('studentAdd').style.display = "none";
+				}
+				else {
+					document.getElementById('studentAdd').style.display = "";
+				}
+				console.log(displayer)
+
+			}
+			function HideStudents() {
+				var displayer = document.getElementById('students').style.display
+				if (displayer == "") {
+					document.getElementById('students').style.display = "none";
+				}
+				else {
+					document.getElementById('students').style.display = "";
+				}
+				console.log(displayer)
+
+			}
+			function setDisplayOnHover(idofelement) {
+				var monitoringDriver = document.getElementById(idofelement).style.display
+				var secondDisplayer = document.getElementById(idofelement + "Y").style.display
+				if (monitoringDriver == "") {
+					document.getElementById(idofelement).style.display = "none";
+				}
+				else {
+					document.getElementById(idofelement).style.display = "";
+				}
+				if (secondDisplayer == "") {
+					document.getElementById(idofelement + "Y").style.display = "none";
+				}
+				else {
+					document.getElementById(idofelement + "Y").style.display = "";
+				}
+				var studentName = document.getElementById(idofelement + "X").value = idofelement;
+
+			}
+			function ViewStudent(studentName) {
+				console.log(studentName)
+				window.location.assign('/StudentViewer+username={{ username }}+password={{ password }}+mailext={{ mailextention }}+studentUsername=' + studentName)
+			}
+			function OnClickOpenThatLink() {
+				var Displayeris = document.getElementById('branchHere').style.display
+				if (Displayeris == "none") {
+					document.getElementById('branchHere').style.display = ""
+				}
+				else {
+					document.getElementById('branchHere').style.display = "none"
+				}
+			}
+			function linkopener(branch) {
+				window.location.assign("/studentTable+teacher={{ username }}+mailext={{ mailextention }}+userpassword={{ password }}+branch=" + branch)
+
+			}
+		</script>
+</body>
+
+</html>

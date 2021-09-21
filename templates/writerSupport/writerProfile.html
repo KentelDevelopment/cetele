@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Çetele Yazar</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+    <link rel="shortcut icon" href="{{url_for('static',filename='Fav2.png')}}" type="image/png" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Londrina+Solid:wght@300&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+        integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
+        crossorigin="anonymous" />
+
+</head>
+
+<body>
+    {% if access == True %}
+    <nav class="navbar navbar-light bg-light">
+        <a class="navbar-brand" href="/writer">
+            <img src="{{url_for('static',filename='Fav2.png')}}" width="30" height="30" class="d-inline-block align-top"
+                alt="Çetele Yazar Logosu">
+            {{FullName}} Genel Bakış
+        </a>
+    </nav>
+
+
+    <div class="container" style="transition: 0.5s;">
+        <button class="fas fa-arrow-circle-left" style="background:none;border:0px;" id="back"onclick="window.history.back()"></button>
+        <div class="profile">
+            <h2>Profilim:</h2>
+            <br>
+            <div class="col-md-9">
+                <h3 style="font-family: 'Roboto Condensed', sans-serif;">{{ FullName }}</h3>
+                {% if font == "Caveat" %}
+                <p id="secondary">
+                    {{autobiography}}
+                </p>
+                {% else %}
+                <p id="secondary_roboto">
+                    {{autobiography}}
+                </p>
+                {% endif %}
+            </div>
+
+        </div>
+        <br>
+
+
+
+
+        <div class="myworks">
+            <h2>Yazılarım:</h2>
+            <div class="col-md-8" style="transition: 0.5s;">
+                {% if MyWorks == None %}
+                <ul class="list-group" style="transition: 0.5s;">
+                    <li class="list-group-item" style="transition: 0.5s;" onmouseover="hoverMeFunc('noWrite','in')"
+                        onmouseout="hoverMeFunc('noWrite','out')"
+                        onclick="alert('Henüz yazın yok ama oluşturabilirsin!')" id="noWrite">Henüz hiç yazınız yok!
+                    </li>
+
+                    <li class="list-group-item" style="transition: 0.5s;"
+                        onclick="window.location.assign('/writer/create/{{username}}/{{password}}/{{mailext}}')"
+                        id="create">Yazı Oluştur <i id="plus"class="fas fa-plus"></i>
+                    </li>
+                </ul>
+
+
+
+
+                {% else %}
+
+                <ul class="list-group" style="transition: 0.5s;">
+                    {% for work in MyWorks %}
+                    <li class="list-group-item" style="transition: 0.5s;" onmouseover="hoverMeFunc('{{work}}','in')"
+                        onmouseout="hoverMeFunc('{{work}}','out')"
+                        onclick="window.location.assign('/writer/workspace/{{work}}/{{username}}/{{password}}/{{mailext}}')"
+                        id="{{work}}">{{work}}
+                    </li>
+                    {% endfor %}
+                    <li class="list-group-item" style="transition: 0.5s;"
+                        onclick="window.location.assign('/writer/create/{{username}}/{{password}}/{{mailext}}')"
+                        id="create">Yazı Oluştur <i id="plus"class="fas fa-plus"></i>
+                    </li>
+                </ul>
+                {% endif %}
+
+
+            </div>
+        </div>
+
+    </div>
+
+
+    <script>
+        function hoverMeFunc(ID, DATA) {
+            if (DATA == "in") {
+                var toHoverIt = document.getElementById(ID)
+                toHoverIt.className = "list-group-item active"
+            }
+            if (DATA == "out") {
+                var toHoverIt = document.getElementById(ID)
+                toHoverIt.className = "list-group-item"
+            }
+
+        }
+    </script>
+
+    <style>
+        #plus{
+            margin-left: 13px;
+        }
+        #maintext {
+            font-family: 'Caveat', cursive;
+            font-size: 40px;
+            transition: 0.5s;
+
+        }
+
+        #create:hover {
+            color: white;
+            transition: 0.5s;
+            background: #00cf29;
+        }
+
+        #secondary {
+            font-family: 'Caveat', cursive;
+            font-size: 25px;
+            transition: 0.5s;
+
+        }
+
+        #logorsignin {
+            text-align: center;
+            background: #0088ff;
+            color: white;
+            padding: 30px;
+            border-radius: 10px;
+            transition: 0.2s;
+        }
+
+        #secondary_roboto {
+            font-family: 'Roboto', monospace;
+        }
+
+        @media screen and (max-width: 992px) {
+            #maintext {
+                font-size: 30px;
+                transition: 0.5s;
+            }
+
+        }
+    </style>
+    {% endif %}
+    {% if access == False %}
+    {% endif %}
+</body>
+
+</html>

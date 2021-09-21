@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Çetele Okur</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+    <link rel="shortcut icon" href="{{url_for('static',filename='Fav2.png')}}" type="image/png" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Londrina+Solid:wght@300&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+        integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
+        crossorigin="anonymous" />
+
+</head>
+
+<body>
+
+    <nav class="navbar navbar-light bg-light">
+        <a class="navbar-brand" href="">
+            <img src="{{url_for('static',filename='Fav2.png')}}" width="30" height="30" class="d-inline-block align-top"
+                alt="Çetele Yazar Logosu">
+            Çetele Okur
+        </a>
+    </nav>
+    <div class="container">
+        <button class="fas fa-arrow-circle-left" id="back"onclick="window.history.back()"></button>
+        <div class="col-md-8">
+            <form action="" style="text-align: center;" method="POST">
+                <h3>Çetele Yazın Arama Motoru</h3>
+                <input type="text" name="search" placeholder="Başlık" id="search" >
+                <button type="submit" id="SRC">Ara</button>
+            </form>
+            {% if result == True %}
+            <p>Sonuçlar : </p>
+            <br>
+
+            {% for result in results %}
+            <a href="/read/{{result}}">{{result}}</a><br>
+
+            {% endfor %}
+
+            {% else %}
+            <br>
+            <br>
+            <p>“Türk çocuğu konuşurken, onun beyan ve anlatış tarzı; 
+                Türk çocuğu yazarken, onun ifade üslubu kendisini dinleyenleri, onun yürüdüğü yola gösterebilecek kabiliyeti sayesinde; 
+                Türk çocuğu kendisini dinleyen veya yazısını okuyanları peşine takarak yüksek Türk ülküsüne iletebilecek, ulaştırabilecektir..” -  <strong>Mustafa Kemal Atatürk</strong>
+            </p>
+            <br>
+            <p>Çok Okunan : </p>
+            <br>
+            <strong>Başlık : {{bestTitle}}</strong><br>
+            <strong>Yazar : {{bestWriter}}</strong><br>
+            <strong>Tıklanma : {{ bestCounter }}</strong><br>
+            <a href="/read/{{bestTitle}}">Hemen Oku</a>
+            {% endif %} 
+
+        </div>
+        
+    
+
+    <style>
+        #back{
+            background:none;
+            border:0px;
+        }
+        #SRC{
+            background:#131313;
+            color:white;
+            border:1px solid #fff;
+            width:20%;
+            border-radius: 5px;
+            height: inherit;
+            transition: 0.5s;
+
+        }
+        #SRC:hover{
+            background:#fff;
+            color:#131313;
+            border:1px solid #131313;
+            width:20%;
+            border-radius: 5px;
+            height: inherit;
+            transition: 0.5s;
+        }
+    </style>
+
+</body>
+
+</html>

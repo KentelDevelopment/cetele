@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Çetele Yazar</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" 
+    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+    <link rel="shortcut icon" href="{{url_for('static',filename='Fav2.png')}}" type="image/png" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Londrina+Solid:wght@300&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&display=swap" rel="stylesheet">   
+</head>
+<body>
+    <nav class="navbar navbar-light bg-light">
+        <a class="navbar-brand" href="">
+          <img src="{{url_for('static',filename='Fav2.png')}}" width="40" height="40" class="d-inline-block align-top" alt="">
+          Çetele Yazar 
+        </a>
+    </nav>
+    <div class="container" >
+        <h2>Üzgünüz hesap bulunamadı</h2>
+        <p id="maintext">
+            Sevgili yazar adayı sanırım hesabını oluşturmadığın için giriş yapamıyorsun ancak üzülme hesap oluşturabilirsin.<a href="/writer">Buraya Tıkla</a>
+        </p>
+        
+    </div>
+
+
+    <style>
+        #maintext{
+            font-family: 'Caveat', cursive;
+            font-size: 40px;
+            transition: 0.5s;
+        
+        }
+        #secondary{
+            font-family: 'Caveat', cursive;
+            font-size: 25px;
+            transition: 0.5s;
+        
+        }
+        #logorsignin{
+            text-align: center;
+            background:#0088ff;
+            color:white; 
+            padding: 30px;
+            border-radius: 10px;
+            transition: 0.2s;
+        }
+        @media screen and (max-width: 992px) {
+        #maintext {
+            font-size: 30px;
+            transition: 0.5s;
+        }
+        }
+    </style>
+</body>
+</html>

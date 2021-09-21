@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Çetele - Öğrenci Anasayfa</title>
+	<link rel="shortcut icon" href="{{ url_for('static', filename='fav.png') }}">
+
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+		integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+		integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+
+</head>
+
+<body class="align-middle">
+	<a href="/" style="color:white;text-decoration:none;margin-top:5px;margin-left:5px;">Çıkış Yap <i
+			class="fa fa-sign-out-alt" style="margin-left: 10px;"></i></a>
+	<br>
+	<div class="container">
+		<h1>Çetele Anasayfa</h1>
+		<div class="col-md-8">
+			{% if noschool == True %}
+			<br>
+			<h4>Kayıt 2. Aşama</h4><br>
+			<form action="" method="POST">
+				<input type="text" name="FullName" class="form-control" placeholder="Tam İsminiz..."><br><br>
+				<input type="number" placeholder="Öğrenci Numarası" name="studentNumber" class="form-control"><br><br>
+				<label for="ClassNumber">Sınıf:</label>
+				<select name="ClassNumber" id="" class="form-control">
+					<option value="5">5</option>
+					<option value="6">6</option>
+					<option value="7">7</option>
+					<option value="8">8</option>
+					<option value="9">9</option>
+					<option value="10">10</option>
+					<option value="11">11</option>
+					<option value="12">12</option>
+
+				</select><br>
+				<label for="ClassLetter">Şube:</label>
+				<select name="ClassLetter" class="form-control" id="">
+					<option value="A">A</option>
+					<option value="B">B</option>
+					<option value="C">C</option>
+					<option value="Ç">Ç</option>
+					<option value="D">D</option>
+					<option value="E">E</option>
+					<option value="F">F</option>
+					<option value="G">G</option>
+					<option value="Ğ">Ğ</option>
+					<option value="H">H</option>
+					<option value="I">I</option>
+					<option value="İ">İ</option>
+					<option value="J">J</option>
+					<option value="K">K</option>
+					<option value="L">L</option>
+					<option value="M">M</option>
+					<option value="N">N</option>
+					<option value="O">O</option>
+					<option value="Ö">Ö</option>
+					<option value="P">P</option>
+					<option value="R">R</option>
+					<option value="S">S</option>
+					<option value="Ş">Ş</option>
+					<option value="T">T</option>
+					<option value="U">U</option>
+					<option value="Ü">Ü</option>
+					<option value="V">V</option>
+					<option value="Y">Y</option>
+					<option value="Z">Z</option>
+				</select><br>
+
+				<label for="schoolLevel">Düzey</label>
+				<select name="schoolLevel" class="form-control">
+					<option value="İlkokul">İlkokul</option>
+					<option value="Ortaokul">Ortaokul</option>
+					<option value="Lise">Lise</option>
+
+				</select><br><br>
+
+				<input type="submit" data-toggle="modal" name="submit" class="btn btn-warning" value="Bilgileri Onayla">
+
+			</form>
+
+			{% endif %}
+
+
+
+
+
+		</div>
+		{% if noschool == False %}
+		<button title="Settings" style="color:white;background:none;border:0px;position:absolute;top:1%;right:1%"
+			onclick="window.location.assign('/settings/student/{{username}}/{{password}}/{{mailext}}')"
+			class="fas fa-cog"></button>
+		<br>
+		<h5>Soru Ekle</h5>
+		<button class="btn btn-info" onclick="displayTrue('maths')">Matematik</button> (Soru sayısı:{{
+		mathsQuestionNumber }} , güncelleme tarihi:{{ mathsDateAndTime }})<br><br>
+		<button class="btn btn-success" onclick="displayTrue('science')">Fen Bilimleri</button> (Soru sayısı:{{
+		scienceQuestionNumber }} , güncelleme tarihi:{{ scienceDateAndTime }})<br><br>
+		<button class="btn btn-danger" onclick="displayTrue('turkish')">Türkçe</button> (Soru sayısı:{{
+		turkishQuestionNumber }} , güncelleme tarihi:{{ turkishDateAndTime }})<br><br>
+		<button class="btn btn-warning" onclick="displayTrue('ataturkism')">İnkılap Tarihi ve Atatürkçülük/S.B.</button>
+		(Soru sayısı:{{ ataturkismQuestionNumber }} , güncelleme tarihi:{{ ataturkismDateAndTime }})<br><br>
+		<button class="btn btn-success" onclick="displayTrue('religion')">Din Kültürü</button> (Soru sayısı:{{
+		religionQuestionNumber }} , güncelleme tarihi:{{ religionDateAndTime }})<br><br>
+		<button class="btn btn-info" onclick="displayTrue('english')">İngilizce</button> (Soru sayısı:{{
+		englishQuestionNumber }} , güncelleme tarihi:{{ englishDateAndTime }})
+		<div id="SoruUpload" style="display: none;">
+			<div class="col-md-6">
+				<form action="" method="POST">
+					<br>
+					<input type="text" style="display: none;" id="time" name="timeis">
+
+					<input class="form-control" type="number" placeholder="Soru Sayısı(Görüntülenebilir)"
+						name="questionNumber" required><br>
+
+
+					<input name="mistakesNumber" placeholder="Yanlış Sayısı..." class="form-control" type="number"
+						required><br>
+
+
+					<input name="srcQuest" class="form-control" type="text" placeholder="Çözülen Kaynak(lar)..."
+						required><br>
+
+
+					<input id="selected" name="lesson" style="display: none;width:0px;background: none;"
+						class="disabled">
+
+					<input type="submit" value="Soru sayısını ekle" class="btn btn-light" name="submit">
+					<br>
+				</form>
+
+			</div>
+
+		</div><br>
+		<br>
+		<button class="btn btn-light"
+			onclick="window.location.assign('/ZoomTable-username={{ username }}-pwd={{ password }}-mail={{ mailext }}')">Canlı
+			Ders <i class="fas fa-video"></i> </button>
+		<br>
+		<br>
+		<button class="btn btn-dark"
+			onclick="window.location.assign('/homework/{{username}}/{{password}}/{{mailext}}')">Ödevlerim <i
+				style="color:white" class="fad fa-book-reader"></i></button><br>
+		<br>
+
+
+		<button class="btn btn-light" style="font-family: monospace;"
+			onclick="window.location.assign('/book/{{username}}/{{password}}/{{mailext}}')">Kitap AI 1.0 <i
+				class="fas fa-robot"></i></button>
+		<br>
+		<br>
+		<script>
+			function displayTrue(lesson) {
+				totrue = document.getElementById('SoruUpload')
+				if (totrue.style.display == "none") {
+					totrue.style.display = ""
+				} else {
+					null
+
+				}
+
+				document.getElementById('selected').value = lesson
+				var today = new Date();
+				var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
+				var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+				var dateTime = date + ' ' + time;
+				document.getElementById('time').value = dateTime
+			}
+
+		</script>
+		{% endif %}
+	</div>
+	<style type="text/css">
+		.someinfo {
+
+			top: 40%;
+			text-align: center;
+		}
+	</style>
+	<script>
+		function circleit(movement) {
+			if (movement == "second") {
+				document.getElementById("play").className = "far fa-play"
+			}
+			if (movement == "first") {
+				document.getElementById("play").className = "far fa-play-circle"
+			}
+
+
+
+		}
+	</script>
+	<style>
+		body {
+			background: #0390fc;
+			color: white;
+		}
+
+		#btn-it:focus {
+			outline: none;
+		}
+
+		#btn-it {
+			outline: none
+		}
+	</style>
+</body>
+
+</html>

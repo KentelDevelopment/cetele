@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Adding Online Classes- Çetele</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+    integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <link rel="shortcut icon" href="{{ url_for('static', filename='fav.png') }}">
+</head>
+
+<body>
+
+  <button onclick="window.history.back()" style="background:none;border:0px;color:white">Go Back <i
+      class="fas fa-long-arrow-alt-left" style="margin-left: 10px;"></i></button>
+  <div class="container">
+    <h3>Çetele - Online Education <i class="fas fa-video"></i></h3>
+
+
+
+    <div class="card">
+      <div class="card-horizontal" style="color:black;display: flex;">
+        <div class="img-square-wrapper">
+          <i style="color:#0390fc;margin-left: 20px;" class="fas fa-video fa-8x"></i>
+        </div>
+        <div class="card-body" style="">
+          <h4 class="card-title">Add Online Meeting <i class="fas fa-plus" style="margin-left: 5px;"></i></h4>
+          <p class="card-text">Students can see your Zoom Address and your full name <br>
+            <form class="form" action="" method="POST">
+              <input type="text" name="zoomLink" placeholder="Zoom Adress(as url)..." class="form-control" required><br>
+              {% if sent==False %}
+                <div class="alert alert-danger">
+                  We can't find this address(<i>*Try add https://</i>) or this address is not secure!
+                </div>
+                <br>
+              {% endif %}
+              <input class="form-control" name="note" placeholder="Your annotation about class or classes..." required>
+              <br><input type="submit" class="btn btn-success" value="Add +">
+            </form>
+          </p>
+        </div>
+
+      </div>
+
+      <div class="card-footer">
+        <small class="text-muted">made by Kentel in Kırşehir</small>
+      </div>
+    </div>
+    <br>
+    <br>
+    {% if sent==True %}
+      <div class="alert alert-success">
+        Online Meeting created
+      </div>
+    {% endif %}
+
+
+
+
+  </div>
+
+  <style>
+    body {
+      background: #0390fc;
+      color: white;
+    }
+
+    #btn-it:focus {
+      outline: none;
+    }
+
+    #btn-it {
+      outline: none
+    }
+  </style>
+</body>
+
+</html>

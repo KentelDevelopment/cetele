@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+
+	
+	<title>Çetele Admin</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+		integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+		integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+	<link rel="shortcut icon" href="{{ url_for('static', filename='fav.png') }}">
+
+
+
+
+</head>
+
+<body class="align-middle">
+
+    
+    <nav class="navbar navbar-dark  bg-dark">
+        <a class="navbar-brand" href="">
+            Admin
+        </a>
+    </nav>
+    
+    <br>
+    
+	<div class="container">
+        <h2>Page Visit Activity:</h2>
+        <p style="margin-left:10px">https://cetele.website/: {{ IndexViewers }}</p>
+
+        <h5>Student Counter : {{ userCounter }} </h5>
+        <h5><code style="color:springgreen">Teacher</code> Counter : {{ teacherCounter }} </h5>
+
+
+        <a class="btn btn-primary " style="text-decoration: none;"  href="/admin/{{username}}+{{password}}/viewUsers">View Accounts</a>
+
+
+    </div>
+    
+
+
+
+
+	<style>
+		body {
+			background: #fff;
+			
+		}
+
+		#btn-it:focus {
+			outline: none;
+		}
+
+		#btn-it {
+			outline: none
+		}
+        #loginMainButton:hover{
+            color:royalblue;
+            background:none;
+            transition: 1s;
+
+        }
+        #loginMainButton{
+
+
+            transition: 1s;
+            outline:none;
+
+        }
+        #loginMainButton:focus {
+            outline: none;
+        }
+	</style>
+</body>
+
+
+</html>

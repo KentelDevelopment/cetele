@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+	<link rel="shortcut icon" href="{{ url_for('static', filename='fav.png') }}">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Çetele - ScoreTable</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+		integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+		integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+</head>
+<body>
+    <button class="btn" onclick="window.history.back()">Go Back</button>
+    <center>
+
+        <h3>Student ScoreTable</h3>
+    </center>
+    <div class="container">
+        <div class="row" style="background:#2fb9f5;color:white;border-radius: 10px;">
+            <div class="col-sm" >
+                Username
+            </div>
+            <div class="col-sm">
+                Statics
+            </div>
+            <div class="col-sm">
+                mistakes
+            </div>
+            <div class="col-sm">
+                Date
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm">
+                {% for userName in studentName %}
+                    <p>{{ userName }}</p>
+                    <br>
+                {% endfor %}
+            </div>
+            <div class="col-sm">
+                {% for question in questions %}
+                    <p>{{ question }}</p>
+                    <br>
+                {% endfor %}
+            </div>
+            <div class="col-sm">
+                {% for mist in mistakes %}
+                    <p>{{ mist }}</p>
+                    <br>
+                {% endfor %}
+            </div>
+            <div class="col-sm">
+                {% for dateis in date %}
+                    <p >{{ dateis }}</p>
+                    <br>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+
+</body>
+</html>

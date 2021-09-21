@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Çetele - Home Page Student</title>
+	<link rel="shortcut icon" href="{{ url_for('static', filename='fav.png') }}">
+
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+		integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+		integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+
+</head>
+
+<body class="align-middle">
+	<a href="/en" style="color:white;text-decoration:none;margin-top:5px;margin-left:5px;">Log Out <i
+			class="fa fa-sign-out-alt" style="margin-left: 10px;"></i></a>
+	<br>
+	<div class="container">
+		<h1>Çetele Home</h1>
+		<div class="col-md-8">
+			{% if noschool == True %}
+			<br>
+			<h4>Registering 2. Step</h4><br>
+			<form action="" method="POST">
+				<input type="number" placeholder="School Number" name="studentNumber" class="form-control"><br><br>
+				<input type="text" name="className" placeholder="Class Name..." class="form-control"
+					maxlength="3"><br><br>
+				<input type="text" value="High School" class="form-control disabled" name="schoolLevel" disabled><br><br>
+				<input type="submit" data-toggle="modal" name="submit" class="btn btn-warning" value="Submit information">
+
+			</form>
+
+			{% endif %}
+
+
+
+
+
+		</div>
+		{% if noschool == False %}
+		<button style="color:gray;background:none;border:0px;position:absolute;top:1%;right:1%"
+			onclick="window.location.assign('/settings/student/{{username}}/{{password}}/{{mailext}}')"
+			class="fas fa-cog"></button>
+		<br>
+		<h5>Soru Ekle</h5>
+		<button class="btn btn-info" onclick="displayTrue('maths')">Maths</button> (Statics:{{
+		mathsQuestionNumber }} , Update date:{{ mathsDateAndTime }})<br><br>
+		<button class="btn btn-success" onclick="displayTrue('science')">Science</button> (Statics:{{
+		scienceQuestionNumber }} , Update Date:{{ scienceDateAndTime }})<br><br>
+		<button class="btn btn-danger" onclick="displayTrue('turkish')">English</button> (Statics:{{
+		turkishQuestionNumber }} , Update date:{{ turkishDateAndTime }})<br><br>
+		<button class="btn btn-warning" onclick="displayTrue('ataturkism')">Social Studies</button>
+		(Statics:{{ ataturkismQuestionNumber }} , Update date:{{ ataturkismDateAndTime }})<br><br>
+		<button class="btn btn-success" onclick="displayTrue('religion')">religious education		</button> (Statics:{{
+		religionQuestionNumber }} , Update date:{{ religionDateAndTime }})<br><br>
+		<button class="btn btn-info" onclick="displayTrue('english')">Foreign Language</button> (Statics:{{
+		englishQuestionNumber }} , Update date:{{ englishDateAndTime }})
+		<div id="SoruUpload" style="display: none;">
+			<div class="col-md-6">
+				<form action="" method="POST">
+					<br>
+					<input type="text" style="display: none;" id="time" name="timeis">
+
+					<input class="form-control" type="number" placeholder="Statics Question Number..."
+						name="questionNumber" required><br>
+
+
+					<input name="mistakesNumber" placeholder="Mistakes..." class="form-control" type="number"
+						required><br>
+
+
+					<input name="srcQuest" class="form-control" type="text" placeholder="From(source)..."
+						required><br>
+
+
+					<input id="selected" name="lesson" style="display: none;width:0px;background: none;"
+						class="disabled">
+
+					<input type="submit" value="Add Question(s)" class="btn btn-light" name="submit">
+					<br>
+				</form>
+
+			</div>
+
+		</div><br>
+		<br>
+		<button class="btn btn-light"
+			onclick="window.location.assign('/en/ZoomTable-username={{ username }}-pwd={{ password }}-mail={{ mailext }}')">
+			Online Classes <i class="fas fa-video"></i> </button>
+		<br>
+		<br>
+		<button class="btn btn-dark"
+			onclick="window.location.assign('/en/homework/{{username}}/{{password}}/{{mailext}}')">My Homeworks <i
+				style="color:white" class="fad fa-book-reader"></i></button><br>
+		<br>
+
+
+		<button class="btn btn-light" style="font-family: monospace;"
+			onclick="window.location.assign('/en/book/{{username}}/{{password}}/{{mailext}}')">Book AI 1.0 <i
+				class="fas fa-robot"></i></button>
+		<br>
+		<br>
+		<script>
+			function displayTrue(lesson) {
+				totrue = document.getElementById('SoruUpload')
+				if (totrue.style.display == "none") {
+					totrue.style.display = ""
+				} else {
+					null
+
+				}
+
+				document.getElementById('selected').value = lesson
+				var today = new Date();
+				var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
+				var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+				var dateTime = date + ' ' + time;
+				document.getElementById('time').value = dateTime
+			}
+
+		</script>
+		{% endif %}
+	</div>
+	<style type="text/css">
+		.someinfo {
+
+			top: 40%;
+			text-align: center;
+		}
+	</style>
+	<script>
+		function circleit(movement) {
+			if (movement == "second") {
+				document.getElementById("play").className = "far fa-play"
+			}
+			if (movement == "first") {
+				document.getElementById("play").className = "far fa-play-circle"
+			}
+
+
+
+		}
+	</script>
+	<style>
+		body {
+			background: #0390fc;
+			color: white;
+		}
+
+		#btn-it:focus {
+			outline: none;
+		}
+
+		#btn-it {
+			outline: none
+		}
+	</style>
+</body>
+
+</html>

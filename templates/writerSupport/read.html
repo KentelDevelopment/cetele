@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Çetele Okur - {{title}}</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+    <link rel="shortcut icon" href="{{url_for('static',filename='Fav2.png')}}" type="image/png" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Londrina+Solid:wght@300&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+        integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
+        crossorigin="anonymous" />
+    <script src= "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"> </script>
+
+    <script>
+        let speech = new SpeechSynthesisUtterance();
+        
+        function tts() {
+            
+            
+            $.getJSON("/read/{{title}}?json=True", 
+                                          function(data) { 
+              
+            
+                speech.lang = "tr-TR";
+                speech.text = data.content;
+            
+                speech.volume = 0.9;
+                speech.rate = 9.5;
+                speech.pitch = 1;
+
+                window.speechSynthesis.speak(speech);   
+
+        })
+        }
+    </script>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-light bg-light">
+        <a class="navbar-brand" href="">
+            <img src="{{url_for('static',filename='Fav2.png')}}" width="30" height="30" class="d-inline-block align-top"
+                alt="Çetele Yazar Logosu">
+            Çetele Okur
+        </a>
+    </nav>
+    <div class="container">
+        <button class="fas fa-arrow-circle-left" id="back"onclick="window.history.back()"></button>
+        <br>
+        <h2>{{title}} <i style="margin-left: 10px;color:#05b6e3" onclick="tts()" class="fa fa-volume-up" title="Seslendir"></i></h2>
+
+        <div class="col-md-12">
+            <p id="main">{{content}}</p>
+        </div>
+
+
+        <br>
+        <p>Yazan : {{writerName}}</p>
+        
+    </div>
+    
+
+    <style>
+        #back{
+            background:none;
+            border:0px;
+        }
+        {% if font == "Caveat" %}
+        #main{
+            font-size: 30px;
+            font-family: Caveat;
+            word-wrap: break-word; 
+            white-space: pre-wrap;
+            
+        }
+        {% elif font=="'Roboto',monospace" %}
+        #main{
+            font-size: 22px;
+            font-family: 'Roboto',monospace;
+            word-wrap: break-word; 
+            white-space: pre-wrap;
+        }
+        @media only screen and (max-width: 900px) {
+            #main{
+                font-size: 17px;
+                font-family: 'Roboto',monospace;
+                word-wrap: break-word; 
+                white-space: pre-wrap;
+            }
+        }
+        {% elif font=="Roboto" %}
+        #main{
+            font-size: 22px;
+            font-family: 'Roboto',monospace;
+            word-wrap: break-word; 
+            white-space: pre-wrap;
+        }
+        @media only screen and (max-width: 900px) {
+            #main{
+                font-size: 17px;
+                font-family: 'Roboto',monospace;
+                word-wrap: break-word; 
+                white-space: pre-wrap;
+            }
+        }
+        {% else %}
+        #main{
+            font-size: 25px;
+            word-wrap: break-word; 
+            white-space: pre-wrap;
+        }
+        {% endif %}
+        
+    </style>
+
+    
+
+</body>
+
+</html>

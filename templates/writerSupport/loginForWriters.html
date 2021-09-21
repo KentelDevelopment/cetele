@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Çetele Yazar Girişi</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" 
+    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+    <link rel="shortcut icon" href="{{url_for('static',filename='Fav2.png')}}" type="image/png" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Londrina+Solid:wght@300&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+    <link rel="shortcut icon" href="{{url_for('static',filename='Fav2.png')}}" type="image/png" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Londrina+Solid:wght@300&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+        integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
+        crossorigin="anonymous" />  
+
+</head>
+<body>
+    <nav class="navbar navbar-light bg-light">
+        <a class="navbar-brand" href="">
+          <img src="{{url_for('static',filename='Fav2.png')}}" width="40" height="40" class="d-inline-block align-top" alt="">
+          Çetele Yazar Girişi
+        </a>
+    </nav>
+    <div class="container" style="transition: 0.5s;">
+
+        <button class="fas fa-arrow-circle-left" style="background:none;border:0px;color:black" onclick="window.history.back()"></button>
+        <div class="col-md-7">
+            <form action="" method="POST">
+                <br>
+                <h2>Giriş Yap:</h2>
+                <br>
+                <input type="email" name="email" id="email" placeholder="E-Mail..." class="form-control">
+                <br>
+                <input type="password" name="password" id="password" placeholder="Şifre..." class="form-control">
+                <br>
+                <br>
+                <button type="submit" style="display: flex;" class="btn btn-primary">Giriş yap</button>
+            </form>
+        </div>
+        
+    </div>
+    <style>
+        body{
+            transition: 0.5s;
+        }
+    </style>
+
+</body>
+</html>

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Çetele - Online Classes</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+
+
+    <link rel="shortcut icon" href="{{ url_for('static', filename='fav.png') }}">
+</head>
+
+<body class="align-middle">
+    <button onclick="window.history.back()" style="background:none;border:0px;color:white">Go Back <i
+            class="fas fa-long-arrow-alt-left" style="margin-left: 10px;"></i></button>
+
+    
+
+    <div class="container">
+
+        <h1>My teachers who has Zoom Software :</h1>
+        {% for teacher in teachers %}
+            <br>
+            <a href="/en/ZoomConnect4StudentsAndUSERNAME={{ username }}+pwd={{ password }}+Mail={{ mailext }}+teacher={{ teacher }}" style="color:white;text-decoration: none;font-family: monospace;font-size: 30px;">{{ teacher }} Online Meeting  <i class="fas fa-mouse-pointer"></i></a>
+        {% endfor %}
+    </div>
+    <style type="text/css">
+        .someinfo {
+
+            top: 40%;
+            text-align: center;
+        }
+    </style>
+    <script>
+        function circleit(movement) {
+            if (movement == "second") {
+                document.getElementById("play").className = "far fa-play"
+            }
+            if (movement == "first") {
+                document.getElementById("play").className = "far fa-play-circle"
+            }
+
+
+
+        }
+    </script>
+    <style>
+        body {
+            background: #0390fc;
+            color: white;
+        }
+
+        #btn-it:focus {
+            outline: none;
+        }
+
+        #btn-it {
+            outline: none
+        }
+    </style>
+    <script>
+        function AddStudent() {
+
+            var displayer = document.getElementById('studentAdd').style.display
+
+            if (displayer == "") {
+                document.getElementById('studentAdd').style.display = "none";
+            }
+            else {
+                document.getElementById('studentAdd').style.display = "";
+            }
+            console.log(displayer)
+
+        }
+        function HideStudents() {
+            var displayer = document.getElementById('students').style.display
+            if (displayer == "") {
+                document.getElementById('students').style.display = "none";
+            }
+            else {
+                document.getElementById('students').style.display = "";
+            }
+            console.log(displayer)
+
+        }
+        function setDisplayOnHover(idofelement) {
+            var monitoringDriver = document.getElementById(idofelement).style.display
+            var secondDisplayer = document.getElementById(idofelement + "Y").style.display
+            if (monitoringDriver == "") {
+                document.getElementById(idofelement).style.display = "none";
+            }
+            else {
+                document.getElementById(idofelement).style.display = "";
+            }
+            if (secondDisplayer == "") {
+                document.getElementById(idofelement + "Y").style.display = "none";
+            }
+            else {
+                document.getElementById(idofelement + "Y").style.display = "";
+            }
+            var studentName = document.getElementById(idofelement + "X").value = idofelement;
+
+        }
+        function ViewStudent(studentName) {
+            console.log(studentName)
+            window.location.assign('/StudentViewer+username={{ username }}+password={{ password }}+mailext={{ mailextention }}+studentUsername=' + studentName)
+        }
+        function OnClickOpenThatLink() {
+            var Displayeris = document.getElementById('branchHere').style.display
+            if (Displayeris == "none") {
+                document.getElementById('branchHere').style.display = ""
+            }
+            else {
+                document.getElementById('branchHere').style.display = "none"
+            }
+        }
+        function linkopener(branch) {
+            window.location.assign("/studentTable+teacher={{ username }}+mailext={{ mailextention }}+userpassword={{ password }}+branch=" + branch)
+
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Çetele book rates API</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+        integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
+        crossorigin="anonymous" />
+</head>
+
+<body>
+    <nav class="navbar navbar-light bg-light">
+        <a class="navbar-brand" href="https://cetele.website">
+
+            <i class="fas fa-book"></i>
+
+            Çetele Book Rates
+        </a>
+    </nav>
+    <button style="background:none;border:0px;color :rgb(4, 49, 49)" onclick="window.history.back()"><i class="fas fa-arrow-alt-circle-left"></i></button>
+    <div class="container">
+        <div class="content">
+            <br>
+            <br>
+            <ul class="list-group">
+            {% for new in Div %}
+            {% if new['title'] == None %}
+
+            {% else %}
+            
+            <li id="limy"class="list-group-item" onclick="window.open('{{new['href']}}')">
+                <img src="{{new.img['src']}}" alt="{{ new['title'] }}">
+                {{ new['title'] }}
+            
+            </li>
+            
+            
+            
+
+            {% endif %}
+            {% endfor %}
+            </ul>
+        </div>
+    </div>
+    <style>
+        body {
+            background: #0390fc;
+            color: black;
+        }
+        #limy:hover{
+            background:#8cb8ff;
+            transition: 1s;
+        }
+        #limy{
+            transition: 1s;
+        }
+    </style>
+    
+</body>
+
+</html>

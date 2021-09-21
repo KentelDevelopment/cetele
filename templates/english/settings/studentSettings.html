@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+
+	
+	<title>Çetele Account Monitor</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+		integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+		integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+	<link rel="shortcut icon" href="{{ url_for('static', filename='fav.png') }}">
+	<script data-ad-client="ca-pub-8847110458960604" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+
+
+</head>
+
+<body class="align-middle">
+    <nav class="navbar navbar-light bg-light">
+        <a class="navbar-brand" href="">
+          <img src="https://icons.iconarchive.com/icons/osullivanluke/orb-os-x/128/Settings-icon.png" width="30" height="30" class="d-inline-block align-top" alt="">
+          Account Monitor - Çetele
+        </a>
+    </nav>
+    <button class="far fa-arrow-alt-circle-left" style="background:none;color:white;border:0px" onclick="window.history.back()"></button>
+
+	<div class="container">
+        <h3>My Account</h3>
+        <div class="col-md-6">
+
+
+            <p>My Email: {{ email }}</p>
+            <label for="myPass">My password:</label>
+            <input type="password"  name="myPass" style="background: none; color:white;border:0px" value="{{ password }}" disabled>
+            <label for="myPass">
+                
+                <a href="/en/changepassword/student/{{username}}/{{ password }}/{{ mailext }}" style="color:tomato;text-decoration:none"><i class="far fa-user-edit"></i></a>
+            </label>
+            <br>
+            <p>My Username is "{{ username }}"</p>
+            <p>My School Number(SN) is  "{{ schoolNum }}"</p>
+        </div>
+    </div>
+	
+
+
+
+
+
+	<style type="text/css">
+		.someinfo {
+
+			top: 40%;
+			text-align: center;
+		}
+	</style>
+	<script>
+		function circleit(movement) {
+			if (movement == "second") {
+				document.getElementById("play").className = "far fa-play"
+			}
+			if (movement == "first") {
+				document.getElementById("play").className = "far fa-play-circle"
+			}
+
+
+
+		}
+
+	</script>
+	<style>
+		body {
+			background: #0390fc;
+			color: white;
+		}
+
+		#btn-it:focus {
+			outline: none;
+		}
+
+		#btn-it {
+			outline: none
+		}
+	</style>
+</body>
+<script data-ad-client="ca-pub-8847110458960604" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+</html>

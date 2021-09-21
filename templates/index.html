@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+
+
+	<title>Çetele Öğrenci takip platformu.</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+		integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+		integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+	<link rel="shortcut icon" href="{{ url_for('static', filename='fav.png') }}">
+	<script data-ad-client="ca-pub-8847110458960604" async
+		src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
+		integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg=="
+		crossorigin="anonymous"></script>
+
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Londrina+Solid:wght@300&display=swap" rel="stylesheet">
+
+	<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&display=swap" rel="stylesheet">
+
+
+
+</head>
+
+<body class="align-middle">
+
+
+	<div class="STUDENT" style="width:100%;height:100%;transition: 0.2s;">
+		<p id="ipapi" style="display:none;"></p>
+		<h2 style="display: none;">Efe Akaröz Tarafından 2020 yılında kentel adı altında yapılmıştır.</h2>
+		<br>
+		<h2> <code style="color:antiquewhite">Kentel </code> Çetele Öğrenci</h2>
+		<br>
+		<br><br>
+		<button class="btn btn-dark" onclick="window.location.assign('/new_user')" onmouseover="circleit('first')"
+			onmouseout="circleit('second')" id="btn-it">Şimdi Başla <i class="fas fa-play" style="margin-left: 10px;"
+				id="play"></i></button>
+		<br><br>
+
+		<br>
+		<br>
+		<button class="btn btn-dark" onclick="window.location.assign('/index')" onmouseover="circleit('firsy')"
+			onmouseout="circleit('second')" id="btn-it">Giriş Yap <i class="far fa-user-circle"
+				style="margin-left: 10px;" id="play"></i></button>
+		<br><br>
+
+		<p ><i>Kentel'in sizler için tasarladığı ve yazdığı ,soru takibi ,ödevlendirme ve canlı ders
+				platformu olan Çetele Efe Akaröz tarafından 2020 yılında herkesin kullanımına resmen açılmıştır.
+				"Büyük başarılar, değerli anaların yetiştirdikleri seçkin çocukların yardımıyla meydana gelir." -
+				Mustafa Kemal Atatürk<code
+					style="color:cadetblue;display: none;">Bilgilendirme için sayfanın en altına bakınız.</code></i></p>
+		<br>
+
+		<br>
+	</div>
+
+
+	<div class="TEACHER" style="text-align: center;transition: 1s;">
+		<br>
+		<H2 style="font-family: sans-serif;"><code style="color:aliceblue">Kentel </code> Çetele Öğretmen</H2>
+		<br><br>
+		<button class="btn btn-light" onclick="window.location.assign('/ogretmenKayıt')" id="btn-it">Şimdi Başla <i
+				class="fas fa-business-time"></i></button>
+		<br><br>
+		<br>
+		<br>
+		<button class="btn btn-light" onclick="window.location.assign('/teacherLogin')" id="btn-it">Giriş Yap <i
+				class="fas fa-hotel"></i></button>
+		<br>
+		<br>
+		<br>
+		<br>
+		<p style="color:white"><i>Kentel'in öğretmenler ve öğrenciler için hazırladığı Çetele resmen kullanıma
+				sunulmuştur. "Gelecek gençlerin,gençler ise öğretmenlerin eseridir." Mustafa Kemal Atatürk </i></p>
+		<br>
+		<br>
+
+	</div>
+	<div class="writer">
+		<h2> <code style="color:black">Kentel </code> Çetele Yazar</h2>
+		<br>
+		<br>
+		<p id="maintext">"Çetele Yazarı" olmak ne midir? Ayrıcalıktır,sesleniştir. Çetele, Türk toplumunun ufkunu ileriki düzeye taşıyacak olan yazarları da unutmadı ve yazarların tüm kullanıcılara metinlerini yayımlama imkanı sundu.
+			Hem de yazar olmak için yaş sınırı yok ,sadece Türkçe'yi bilmen ve noktalama işaretlerini kullanabilmen gerekiyor.Peki ben araştırma yazılarımı ve makalelerimi yayınlayabilir miyim?
+			 Elbette ,yazılarda tür fark etmeksizin (ahlaki kurallara uyması gerek) bağımsız yazılarınızı paylaşabilirsiniz.Tamam anlaştık ama okunacak mıyım? Denemeden bilemezsin sanırım. <i>- Yazan: Efe Akaröz</i><br><br>
+
+		</p>
+		<br>
+		<a href="/writer" style="font-family: monospace;font-size: 25px;">Yazar Anasayfasına Git</a><br>
+		<a href="/read" style="font-family: monospace;font-size: 25px;">Yazın Arama Motoruna Git</a><br>
+
+
+
+	</div>
+
+
+
+	<div class="DOCS" style="width:inherit;height:inherit;background:#0390fc;transition: 1s;">
+		<br>
+		<br>
+		<h2 style="margin-left: 10px;">Belgeler ve Yardım</h2>
+		<br>
+		<br>
+
+
+		<h3 style="margin-left: 20px;">Öğrenciler için Kayıt:</h3>
+		<br>
+
+		<ol style="margin-left: 30px;">
+			<li>Öğrenci başlığı altından şimdi başla düğmesine tıklayın.</li>
+			<li>E-posta ve şifrenizi ayarlayın.</li>
+			<li>Kayıt olduktan sonra "Giriş yap" düğmesine tıklayıp hesabınıza giriş yapabilirsiniz.</li>
+		</ol>
+		<br><br>
+		<h3 style="margin-left: 20px;">Öğretmenler için Kayıt:</h3>
+		<ol style="margin-left: 30px;">
+			<li>Öğretmen başlığı altından şimdi başla düğmesine tıklayın.</li>
+			<li>E-postanızı, şifrenizi ve tam isminizi ayarlayın.</li>
+			<li>Kayıt ol düğmesine basın.</li>
+			<li>Kayıt olduktan sonra "Giriş yap" düğmesine tıklayıp hesabınıza giriş yapabilirsiniz.</li>
+		</ol>
+		<br><br><br>
+
+
+
+		<h3 style="margin-left: 20px;">(Öğrenci) Nasıl soru ekleyebilirim?</h3>
+		<br>
+		<ol style="margin-left: 30px;">
+			<li>Giriş yaptıktan sonra açılan kullanıcı arayüzünde branşlar belirir.</li>
+			<li>Soru sayısı yüklemek istediğiniz branşın üzerine tıklayın ve sayfayı aşağıya kaydırın.</li>
+			<li>Sayfanın altında beliren formu doldurup onaylayın.</li>
+
+		</ol>
+		<br><br>
+		<h3 style="margin-left: 20px;">(Öğrenci) Kullanıcı adım ne?</h3>
+		<br>
+		<ol style="margin-left: 30px;">
+			<li>Giriş yaptıktan sonra açılan kullanıcı arayüzünün sağ üst kısmında çark ikonu belirir.</li>
+			<li>Bu ikona tıklayıp kullanıcı bilgilerinizi görebilirsiniz.</li>
+
+		</ol>
+
+		<br><br>
+		<h3 style="margin-left: 20px;">(Öğretmen) Nasıl öğrencilerimi sayfama ekleyebilirim?</h3>
+		<br>
+		<ol style="margin-left: 30px;">
+			<li>Hesabınıza giriş yapın.</li>
+			<li>Anasayfanızda beliren beyaz "Öğrenci Ekle" butonuna tıklayın.</li>
+			<li>Açılan forma öğrencinin kullanıcı adını ve numarasını girin.</li>
+			<li>Ekle butonuna tıkladıktan sonra öğrenci eklenecektir</li>
+
+		</ol>
+		<br><br>
+		<h3 style="margin-left: 20px;">(Öğretmen) Öğrencilerime nasıl Zoom adresimi yollayabilirim?</h3>
+		<br>
+		<ol style="margin-left: 30px;">
+			<li>Hesabınıza giriş yapın.</li>
+			<li>Anasayfanızda beliren beyaz "Canlı ders Ekle" butonuna tıklayın.</li>
+			<li>Açılan penceredeki formu doldurup "Ekle"ye basın.</li>
+			<li>Anasayfanızdaki öğrencilerin tamamına gönderilmiştir.</li>
+
+		</ol>
+		<br>
+		<br>
+		<h3 style="margin-left: 20px;">(Öğretmen) Öğrencilerime nasıl ödev göndereceğim?</h3>
+		<br>
+		<ol style="margin-left: 30px;">
+			<li>Hesabınıza giriş yapın.</li>
+			<li>Sayfanız'ın sağ tarafında beliren kağıt uçak ikonuna tıklayın.</li>
+			<li>Ödev başlığı ve açıklamasını girerek siyah "ÖDEVİ GÖNDER " butonuna tıklayın.</li>
+
+		</ol>
+
+		<br>
+		<div class="extra" style="margin-left:20px;color:white;">
+			<p>Harici Adresler:</p>
+			<a href="https://www.cetele.website/about" style="color:white">Hakkında</a>
+			<br>
+			<a href="https://www.cetele.website/downloads" style="color:white">İndirmeler</a>
+		</div>
+		
+
+
+
+
+	</div>
+	
+		
+
+	</div>
+
+
+
+
+
+
+	<style type="text/css">
+		.someinfo {
+
+			top: 40%;
+			text-align: center;
+		}
+	</style>
+	<script>
+		function circleit(movement) {
+			if (movement == "second") {
+				document.getElementById("play").className = "far fa-play"
+			}
+			if (movement == "first") {
+				document.getElementById("play").className = "far fa-play-circle"
+			}
+
+
+
+		}
+
+	</script>
+
+
+
+	<script>
+		//Language Api 
+		// function myfunc() {
+		// 	var lang = navigator.language
+
+
+		// 	if (lang == "tr-TR") {
+		// 		null
+		// 	}
+		// 	else {
+		// 		var yesOrNo = prompt("We will open /en (y/n) ")
+		// 		if (yesOrNo=="n") {
+		// 			null
+					
+		// 		}
+		// 		else{
+		// 			window.location.assign('/en')
+		// 		}
+				
+		// 	}
+		// }
+
+
+	</script>
+
+
+
+
+
+
+
+
+
+
+	<style>
+		body {
+			background: #0390fc;
+			color: white;
+			margin: 0px;
+			padding: 0px;
+
+		}
+
+
+		.STUDENT {
+			width: inherit;
+			height: inherit;
+			text-align: center;
+			background: #0390fc;
+			color: white;
+			margin: 0px;
+
+
+
+
+		}
+
+		.TEACHER {
+			width: inherit;
+			height: inherit;
+			text-align: center;
+			background: #333333;
+			color: white;
+			margin: 0px;
+		}
+
+		#btn-it:focus {
+			outline: none;
+		}
+
+		#btn-it {
+			outline: none
+		}
+
+		.writer {
+			width: inherit;
+			height: inherit;
+			text-align: center;
+			background: white;
+			color: black;
+			margin: 0px;
+			
+
+
+		}
+		@media screen and (max-width: 992px) {
+			#maintext {
+				font-size: 30px;
+				transition: 0.5s;
+			}
+        }
+		#maintext{
+            font-family: 'Caveat', cursive;
+            font-size: 40px;
+            transition: 0.5s;
+        
+        }
+		@media screen and (max-width: 800px) {
+			#maintext{
+				font-size: 25px;
+			}
+		}
+	</style>
+</body>
+<script data-ad-client="ca-pub-8847110458960604" async
+	src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+</html>

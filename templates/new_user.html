@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Çetele - Yeni Kullanıcı</title>
+	<link rel="shortcut icon" href="{{ url_for('static', filename='fav.png') }}">
+
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+</head>
+<body class="align-middle">
+	
+	<a href="/" style="color:white;">Geri Dön</a>
+	<div class="container">
+		<div class="someinfo" >
+            <center><h1>Yeni Kullanıcı - Çetele</h1></center>
+            <form action="/new_user" method ="POST">
+                <div class="col-md-7">
+                    <br>
+                    <input type="email" placeholder="E-Mail..." name="email" class="form-control"value="{{email}}"  required>
+                    {% if alredyuser == True %}
+                        <br>
+                        
+                        <div class="alert alert-danger">
+                            Bu Kullanıcı Mevcut
+                        </div>
+                    {% endif %}
+                    <br>
+                    <input type="password" placeholder="Şifre..." name="password" class="form-control" required>
+                    <br>
+                    <input type="text" placeholder="Şifre (Yeniden)..." name="password-again" class="form-control" required>
+                    {% if notsame == True %}
+                        <br>
+                        
+                        <div class="alert alert-danger">
+                            Şifreler Aynı Değil!
+                        </div>
+                    {% endif %}
+                    <br>
+                    <input type="submit" class="btn btn-light" value="Onayla">
+
+                </div>
+            </form>
+		</div>
+	</div>
+	<style type="text/css">
+		.someinfo{
+			
+			top:40%;
+			
+		}
+		
+	</style>
+	<script>
+		function circleit(movement){
+			if (movement == "second") {
+				document.getElementById("play").className="far fa-play"
+			}
+			if (movement == "first") {
+				document.getElementById("play").className="far fa-play-circle"
+			}
+
+			
+
+		}
+	</script>
+	<style>
+		body{
+			background:#0390fc;
+			color:white;
+		}
+		#btn-it:focus{
+			outline: none;
+		}
+		#btn-it{
+			outline:none
+		}
+		
+	</style>
+</body>
+</html>

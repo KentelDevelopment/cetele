@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+ 
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Online class - Çetele</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+    integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+
+    <link rel="shortcut icon" href="{{ url_for('static', filename='fav.png') }}">
+
+</head>
+
+<body>
+
+  <button onclick="window.history.back()" style="background:none;border:0px;color:white">Go back<i
+      class="fas fa-long-arrow-alt-left" style="margin-left: 10px;"></i></button>
+  <div class="container">
+    <h3>Çetele - Online education <i class="fas fa-video"></i></h3>
+
+
+
+    <div class="card">
+      <div class="card-horizontal" style="color:black;display: flex;">
+        <div class="img-square-wrapper">
+          <i style="color:#0390fc;margin-left: 20px;" class="fas fa-video fa-8x"></i>
+        </div>
+        <div class="card-body" style="">
+          <h4 class="card-title">Your teacher is {{ TeacherUsername }} </h4>
+          <p class="card-text">Description : {{ teacherNote }} <br>
+            <button class="btn btn-warning" onclick="window.open('{{ ZoomLink }}')">Join</button>
+          </p>
+        </div>
+      </div>
+      <div class="card-footer">
+        <small class="text-muted">made by Kentel in Kırşehir</small>
+      </div>
+    </div>
+
+
+
+
+  </div>
+
+  <style>
+    body {
+      background: #0390fc;
+      color: white;
+    }
+
+    #btn-it:focus {
+      outline: none;
+    }
+
+    #btn-it {
+      outline: none
+    }
+  </style>
+</body>
+
+</html>

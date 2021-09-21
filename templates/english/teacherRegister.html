@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Çetele - Teacher , Sign Up</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="shortcut icon" href="{{ url_for('static', filename='fav.png') }}">
+	
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+</head>
+<body class="align-middle">
+    <a href="/en" style="color:white;">Go Back</a>
+	<br>
+	<div class="container">
+        <h1>Sign Up - Çetele</h1>
+        <div class="col-md-8">
+            <form action="" method="POST">
+                <br>
+                <input type="email" name="email" placeholder="E-mail..." class="form-control" required>
+                <br>
+                <input type="password" name="password" placeholder="Password..." class="form-control" required>
+                <br>
+                <input type="text" name="FullName" placeholder="Full Name..." class="form-control" required>
+                <br>
+                <input type="text" name="schoolLevel" placeholder="School Level" class="form-control disabled" style="display: none;" value="High school" >
+                <br>
+
+                {% if error == True %}
+                    <div class="alert alert-danger">
+                        This user exists!
+                    </div>
+                    <br>
+
+                {% endif %}
+
+                <input type="submit" class="btn btn-dark" name="submit" value="Create account">
+            </form>
+        </div><br><br><br>
+
+        <p style="color:wheat">Çetele  <code style="color:teal">by Kentel</code></p>
+	</div>
+	<style type="text/css">
+		.someinfo{
+			
+			top:40%;
+			text-align: center;
+		}
+		
+	</style>
+	<script>
+		function circleit(movement){
+			if (movement == "second") {
+				document.getElementById("play").className="far fa-play"
+			}
+			if (movement == "first") {
+				document.getElementById("play").className="far fa-play-circle"
+			}
+
+			
+
+		}
+	</script>
+	<style>
+		body{
+			background:#0390fc;
+			color:white;
+		}
+		#btn-it:focus{
+			outline: none;
+		}
+		#btn-it{
+			outline:none
+		}
+		
+	</style>
+</body>
+</html>

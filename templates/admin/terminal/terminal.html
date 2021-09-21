@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Çetele Terminal</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <link rel="shortcut icon" href="{{ url_for('static', filename='fav.png') }}">
+
+</head>
+
+<body>
+    <nav class="navbar navbar-light bg-light">
+        <a class="navbar-brand" href="#">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/UbuntuCoF.svg/1200px-UbuntuCoF.svg.png"
+                width="32" height="32" class="d-inline-block align-top" alt="">
+            Command Shorter - Ubuntu
+        </a>
+    </nav>
+    {% if loggedin == True %}
+    <br>
+    <div class="container">
+        <form action="" method="POST">
+            <div class="col-md-7">
+
+                <input type="submit" class="btn btn-primary" name="submit"  value="Reload SupervisorCTL">
+
+
+            </div>
+
+
+        </form>
+    </div>
+    {% endif %}
+    {% if loggedin == False %}
+    <br>
+    <div class="container">
+        <form action="/terminal" method="POST">
+            <div class="col-md-7">
+                <div class="col-md-7">
+                    <input type="text" name="apiKey" placeholder="Api Key..." class="form-control">
+                    <br>
+                    <input type="submit" class="btn btn-primary" name="submit" value="Login">
+                </div>
+                
+
+
+            </div>
+
+
+        </form>
+    </div>
+    {% endif %}
+</body>
+
+</html>

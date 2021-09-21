@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+
+
+	<title>Çetele Öğrenci takip platformu.</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+		integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+		integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+	<link rel="shortcut icon" href="{{ url_for('static', filename='fav.png') }}">
+	<script data-ad-client="ca-pub-8847110458960604" async
+		src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
+		integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg=="
+		crossorigin="anonymous"></script>
+
+
+
+</head>
+
+<body class="align-middle">
+    <button style="background:none;border:0px;color:white;" class="far fa-arrow-alt-circle-left"></button>
+    <h1 style="margin:20px">Çetele Yarışmalar </h1>
+    <div class="container" style="transition: 1s;">
+
+        <p>Kullanıcı : {{username}}</p>
+        <p>Sıralama : {{ ranking }}</p>
+
+    </div>
+
+
+
+
+	<style>
+		body {
+			background: #0390fc;
+			color: white;
+			margin: 0px;
+			padding: 0px;
+			transition: 1s;
+
+		}
+
+
+		.STUDENT {
+			width: inherit;
+			height: inherit;
+			text-align: center;
+			background: white;
+			color: black;
+			margin: 0px;
+
+
+
+		}
+
+		.TEACHER {
+			width: inherit;
+			height: inherit;
+			text-align: center;
+			background: #333333;
+			color: white;
+			margin: 0px;
+		}
+
+		#btn-it:focus {
+			outline: none;
+		}
+
+		#btn-it {
+			outline: none
+		}
+	</style>
+</body>
+<script data-ad-client="ca-pub-8847110458960604" async
+	src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+</html>

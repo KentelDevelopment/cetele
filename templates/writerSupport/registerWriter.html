@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Çetele Yazar</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" 
+    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@1,300&display=swap" rel="stylesheet">
+
+    <link rel="shortcut icon" href="{{url_for('static',filename='Fav2.png')}}" type="image/png" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Londrina+Solid:wght@300&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&display=swap" rel="stylesheet">   
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+    <link rel="shortcut icon" href="{{url_for('static',filename='Fav2.png')}}" type="image/png" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Londrina+Solid:wght@300&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+        integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
+        crossorigin="anonymous" />
+</head>
+<body>
+    <nav class="navbar navbar-light bg-light">
+        <a class="navbar-brand" href="">
+          <img src="{{url_for('static',filename='Fav2.png')}}" width="40" height="40" class="d-inline-block align-top" alt="">
+          Çetele Yeni Yazar
+        </a>
+    </nav>
+    <div class="container"style="transition:0.5s" >
+        <button class="fas fa-arrow-circle-left" style="background:none;border:0px;" id="back"onclick="window.history.back()"></button>
+        <br>
+        <h2>Yazar hesabı oluştur:</h2>
+        <br>
+        <form action="" method="POST">
+            <div class="col-md-7">
+                <input type="text" name="FullName" class="form-control" placeholder="Tam isminiz..." required>
+                <br>
+                <input type="email" name="email" id="email" placeholder="E-mail..."  class="form-control" required>
+                <br>
+                <input type="password" name="password1"  placeholder="Şifre..." class="form-control">
+                <br>
+                <input type="password" name="password2"  placeholder="Şifre (yeniden)..." class="form-control">
+                {% if notSame == True %}
+                <label for="password2" style="color:red;">Şifreler aynı değil malesef.</label>
+
+                {% endif %}
+
+                <br>
+                <textarea id="AB"name="autobiography" 
+                placeholder="Otobiyografi Metniniz(Zorunlu değil ancak öneriyoruz)"></textarea>
+                
+                <input type="text" name="fontFamily" value="Roboto"id="fontFamily" style="display: none;">
+            </div>
+            <button type="submit" name="enter"class="btn btn-primary">Kaydı tamamla</button>
+            {% if goneBad == True %}
+            <label for="enter">Hesabınızı oluştururken bir hata oluştu!(500-Yayınlayıcı hatası)</label>
+            {% endif %}
+            <br>
+            <br>
+        </form>
+        <button onclick="setFont()" id="handwrite">Otobiyografim el yazısı olsun.</button>
+        <script>
+            function setFont(){
+                var ab = document.getElementById("AB");
+                var fontInput = document.getElementById("fontFamily")
+                if (fontInput.value == "Roboto") {
+                    fontInput.value = "Caveat";
+                    ab.style.fontFamily = "Caveat";
+                    ab.style.fontSize = "30px";
+                    document.getElementById("handwrite").innerHTML = "Otobiyografim Daktilo Yazısı Olsun"
+                } 
+                else {
+                    fontInput.value = "Roboto";
+                    ab.style.fontFamily = "Roboto , monospace";
+                    ab.style.fontSize = "25px";
+                    document.getElementById("handwrite").innerHTML = "Otobiyografim El Yazısı Olsun"
+                } 
+            }
+        </script>
+    </div>
+    <style>
+        #maintext{
+            font-family: 'Caveat', cursive;
+            font-size: 40px;
+            transition: 0.5s;
+        
+        }
+        #secondary{
+            font-family: 'Caveat', cursive;
+            font-size: 25px;
+            transition: 0.5s;
+        
+        }
+        #logorsignin{
+            text-align: center;
+            background:#0088ff;
+            color:white; 
+            padding: 30px;
+            border-radius: 10px;
+            transition: 0.2s;
+        }
+        @media screen and (max-width: 992px) {
+        #maintext {
+            font-size: 30px;
+            transition: 0.5s;
+        }
+        }
+        #AB{
+            font-family: 'Roboto Mono', monospace;
+            width:100%;
+            height: 400px;
+            color:black;
+        }
+        button{
+            border:1px solid #000000;
+        }
+    </style>
+    <style>
+        
+    </style>
+</body>
+</html>

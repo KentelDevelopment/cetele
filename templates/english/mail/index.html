@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KMS - Kentel Mail Service</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+</head>
+
+<body>
+    <nav class="navbar navbar-light bg-light">
+        <a class="navbar-brand" href="">
+            <img src="{{ url_for('static', filename='mail.png') }}" width="30" height="30"
+                class="d-inline-block align-top" alt="">
+            Kentel Mail
+        </a>
+    </nav>
+
+    <button style="background: none;border:0px;color:white"><i class="fas fa-arrow-left"></i></button>
+
+    <div style="transition: 1s;" class="container">
+        <h3>Gelen Kutusu:</h3>
+        <br>
+        <ul class="list-group" style="color:black;">
+
+            
+            
+            {% for m in mails %}
+
+            <li class="list-group-item" style="transition: 1s;">{{m.content}}</li>
+            
+            {% endfor %}
+            
+        </ul>
+
+
+
+        <div class="send">
+            <div class="toolbar">
+                <a>Gönderi</a>
+                <a id="time" style="margin-left:10px"> </a>
+            </div>
+            <div class="content">
+                <form action="" method="POST">
+                    <input type="text" class="form-control" name="username"id="username" placeholder="Alıcı(Kullanıcı Adı)..." required>
+                    {% if notFound == True %}
+                    <style>
+                        #username{
+                            border:1px solid red;
+                        }
+                    </style>
+                    {% endif %}
+                    <input type="text" class="form-control" name="title"
+                        style="border:0px;margin-bottom:5px;border-bottom:1px solid#000; margin-top:2px;"
+                        placeholder="Konu başlığı..." required autocomplete="off">
+
+
+                    <input type="text" style="display: none;" name="time" id="time2">
+                    <input type="text" name="date" id="date" style="display: none;">
+
+
+                    <textarea name="content" placeholder="İçerik..." id="" cols="30"  autocomplete="off" rows="6"></textarea>
+                    <br>
+                    <button type="submit" class="btn btn-dark">Gönder</button>
+                    <br>
+
+                </form>
+            </div>
+        </div>
+        <button class="floating-action-button">
+            <i class="fal fa-paper-plane"></i>
+        </button>
+
+
+
+    </div>
+
+
+
+
+
+
+    <style>
+        body {
+            background: #0390fc;
+            color: white;
+            transition: 1s;
+        }
+
+        .floating-action-button {
+            position: absolute;
+            right: 5%;
+            bottom: 5%;
+            border: 1px solid #000;
+            color: white;
+            text-align: center;
+            background: #4d4d4d;
+            font-size: 27px;
+            border-radius: 50%;
+            width: 65px;
+            height: 65px;
+            transition: 0.5s;
+            outline: none;
+        }
+
+        .floating-action-button:hover {
+            background: #e6e6e6;
+            color: black;
+            transition: 0.5s;
+        }
+
+        .send {
+            width: 15;
+            position: absolute;
+            right: 5%;
+            bottom: 15%;
+            background: none;
+            color: black;
+            width: 40%;
+
+            border: 1px solid #000;
+            border-radius: 10px;
+            transition: 1s;
+            background: white;
+
+        }
+
+        .toolbar {
+            background: #545454;
+            color: white;
+            border-top-left-radius: 10px;
+            padding: 8px;
+            border-top-right-radius: 10px;
+        }
+
+        @media only screen and (max-width: 800px) {
+            .send {
+                width: 15;
+                position: absolute;
+                right: 5%;
+                bottom: 15%;
+                background: none;
+                color: black;
+                width: 60%;
+
+                border: 1px solid #000;
+                border-radius: 10px;
+                transition: 1s;
+                background: white;
+
+
+            }
+        }
+
+        .content {
+            color: black;
+            width: 100%;
+
+        }
+    </style>
+
+</body>
+<script>
+    function showTime() {
+        var date = new Date();
+        var h = date.getHours(); // 0 - 23
+        var m = date.getMinutes(); // 0 - 59
+
+
+        var session = "Ö.Ö.";
+
+        if (h == 0) {
+            h = 12;
+        }
+
+        if (h > 12) {
+            h = h - 12;
+            session = "Ö.S.";
+        }
+
+        h = (h < 10) ? "0" + h : h;
+        m = (m < 10) ? "0" + m : m;
+
+
+        var time = h + "." + m + "  " + session;
+        document.getElementById("time").innerText = "Saat : " + time;
+        document.getElementById("time").textContent = "Saat :" + time;
+
+        document.getElementById("time2").value = time;
+        document.getElementById("time2").value =  time;
+
+        setTimeout(showTime, 1000);
+
+    }
+
+    showTime();
+    function setDateOfInp() {
+        var month = new Array();
+        month[0] = "Ocak";
+        month[1] = "Şubat";
+        month[2] = "Mart";
+        month[3] = "Nisan";
+        month[4] = "Mayıs";
+        month[5] = "Haziran";
+        month[6] = "Temmuz";
+        month[7] = "Ağustos";
+        month[8] = "Eylül";
+        month[9] = "Ekim";
+        month[10] = "Kasım";
+        month[11] = "Aralık";
+
+        var d = new Date();
+        var n = d.getDate();
+        var month = month[d.getMonth()];
+        var year = d.getFullYear();
+
+        var fullDate= n+" "+month+" "+year
+
+
+        document.getElementById("date").value = fullDate
+    }
+    setDateOfInp()
+</script>
+
+
+</html>

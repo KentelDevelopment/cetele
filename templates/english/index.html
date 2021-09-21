@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+
+
+	<title>Çetele Student Management System.</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+		integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+		integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+	<link rel="shortcut icon" href="{{ url_for('static', filename='fav.png') }}">
+	<script data-ad-client="ca-pub-8847110458960604" async
+		src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+
+
+</head>
+
+<body class="align-middle">
+
+
+	<div class="STUDENT" style="width:100%;height:100%;color:black;">
+		<h2 style="display: none;">Made by Efe Akaröz in 2020 as Kentel</h2>
+		<br>
+		<h2> <code style="color:black">Kentel </code> Çetele Student</h2>
+		<br>
+		<br><br>
+		<button class="btn btn-dark" onclick="window.location.assign('/en/new_user')" onmouseover="circleit('first')"
+			onmouseout="circleit('second')" id="btn-it">Start Now<i class="fas fa-play" style="margin-left: 10px;"
+				id="play"></i></button>
+		<br><br>
+
+		<br>
+		<br>
+		<button class="btn btn-dark" onclick="window.location.assign('/en/index')" onmouseover="circleit('firsy')"
+			onmouseout="circleit('second')" id="btn-it">Log in <i class="far fa-user-circle"
+				style="margin-left: 10px;" id="play"></i></button>
+		<br><br>
+
+		<p style="color:black"><i>Çetele student management ,assignment and the online class platform wrote and published by Kentel for your usage. 
+			"Great success occurs with the help of distinguished children raised by worthy mothers. " -Mustafa Kemal Atatürk
+			<code style="color:cadetblue;display: none;">For more information look at the bottom of the page.</code></i></p>
+		<br>
+
+		<br>
+	</div>
+
+
+	<div class="TEACHER" style="text-align: center;">
+		<br>
+		<H2 style="font-family: sans-serif;"><code style="color:aliceblue">Kentel </code> Çetele Teacher</H2>
+		<br><br>
+		<button class="btn btn-light" onclick="window.location.assign('/en/ogretmenKayıt')" id="btn-it">Start Now <i
+				class="fas fa-business-time"></i></button>
+		<br><br>
+		<br>
+		<br>
+		<button class="btn btn-light" onclick="window.location.assign('/en/teacherLogin')" id="btn-it">Log in <i
+				class="fas fa-hotel"></i></button>
+		<br>
+		<br>
+		<br>
+		<br>
+		<p style="color:white"><i>The Çetele prepared by Kentel for teachers and students , it is officially available.
+						"The future is the creation of young people, and young people are the creation of teachers." - Mustafa Kemal Atatürk </i></p>
+		<br>
+		<br>
+
+	</div>
+	
+	<div class="DOCS" style="width:inherit;height:inherit;background:#0390fc;">
+		<br>
+		<br>
+		<h2 style="margin-left: 10px;">Documentation and support</h2>
+		<br>
+		<br>
+
+
+		<h3 style="margin-left: 20px;">Registiration for students:</h3>
+		<br>
+
+		<ol style="margin-left: 30px;">
+			<li>Click the "Start now" button under the student title. </li>
+			<li>Set e-mail and password.</li>
+			<li>You can login to your account after your signing up ,you should  click "Login" button.</li>
+		</ol>
+		<br><br>
+		<h3 style="margin-left: 20px;">Registiration for Teachers:</h3>
+		<ol style="margin-left: 30px;">
+			<li>Click the "Start now" button under the teacher title.</li>
+			<li>Set your e-mail,password and full name to sign up.</li>
+			<li>Click "Sign Up" button.</li>
+			<li>You can login to your account after your signing up ,you should  click "Login" button.</li>
+		</ol>
+		<br><br><br>
+
+
+
+		<h3 style="margin-left: 20px;">(Student) How can I add my question statics?</h3>
+		<br>
+		<ol style="margin-left: 30px;">
+			<li>After your logging in branches appers on the screen.</li>
+			<li>Click on the branch in which you want to upload the number of questions and scroll down the page.			</li>
+			<li>Fill the form at the bottom of the page and confirm.</li>
+
+		</ol>
+		<br><br>
+		<h3 style="margin-left: 20px;">(Student) What is my username ?</h3>
+		<br>
+		<ol style="margin-left: 30px;">
+			<li>There is a wheel icon at the user interface that appears after you log in.</li>
+			<li>After clicking this button you can see your information.</li>
+
+		</ol>
+
+		<br><br>
+		<h3 style="margin-left: 20px;">(Teacher) How can I add my students to my page ?</h3>
+		<br>
+		<ol style="margin-left: 30px;">
+			<li>Login to your account.</li>
+			<li>Click the white "Add student" button which appears on your page.</li>
+
+			<li>Enter the student username and school number to the form which was appeared.</li>
+			<li>We will add the student after you click the "Add Student" button.</li>
+
+		</ol>
+		<br><br>
+		<h3 style="margin-left: 20px;">(Teacher) How can I send the "Zoom" address to my students ?</h3>
+		<br>
+		<ol style="margin-left: 30px;">
+			<li>Login to your account.</li>
+			<li>Click to white "Add Online Class" button.</li>
+			<li>Fill the form at the new tab and confirm it.</li>
+			<li>We will send the zoom url to  all of the students at your page.</li>
+
+		</ol>
+		<br>
+		<br>
+		<h3 style="margin-left: 20px;">(Teacher) How can I assign homeworks?</h3>
+		<br>
+		<ol style="margin-left: 30px;">
+			<li>Login to your account.</li>
+			<li>Click the "Paper Plane" icon which was appeard on top right.</li>
+			<li>Enter the homework title and description before clicking the "SEND" button.</li>
+
+		</ol>
+		<h1>Çetele Competition</h1>
+		<div class="competition" >
+
+		<div class="card" style="width: 15rem; color:black;margin: 5%; margin-left: 10%;">
+			<img class="card-img-top" src="https://i.pinimg.com/originals/41/36/16/41361625cc44df07f81a620eac766468.png"
+				alt="Card image cap">
+			<div class="card-body">
+				<h5 class="card-title">Maths Winner {{compDataMathsName}}</h5>
+				<p class="card-text">Statics : {{compDataMathsNumber}}</p>
+
+			</div>
+		</div>
+
+
+
+		<div class="card" style="width: 15rem; color:black;margin: 5%;">
+			<img class="card-img-top" src="https://i.pinimg.com/originals/41/36/16/41361625cc44df07f81a620eac766468.png"
+				alt="Card image cap">
+			<div class="card-body">
+				<h5 class="card-title">Turkish Winner {{compDataTurkishName}}</h5>
+				<p class="card-text">Statics: {{compDataTurkishNumber}}</p>
+
+			</div>
+		</div>
+
+		<div class="card" style="width: 15rem; color:black;margin: 5%;">
+			<img class="card-img-top" src="https://i.pinimg.com/originals/41/36/16/41361625cc44df07f81a620eac766468.png"
+				alt="Card image cap">
+			<div class="card-body">
+				<h5 class="card-title">Science Winner {{compDataScienceName}}</h5>
+				<p class="card-text">Statics : {{compDataScienceNumber}}</p>
+
+			</div>
+		</div>
+
+	</div>
+
+		<a href="/en/about" style="color:white;">About</a>
+		<a href="/writer">Writer(Turkish)</a>
+	</div>
+
+
+
+
+
+
+	<style type="text/css">
+		.someinfo {
+
+			top: 40%;
+			text-align: center;
+		}
+	</style>
+	<script>
+		function circleit(movement) {
+			if (movement == "second") {
+				document.getElementById("play").className = "far fa-play"
+			}
+			if (movement == "first") {
+				document.getElementById("play").className = "far fa-play-circle"
+			}
+
+
+
+		}
+
+	</script>
+	<style>
+		body {
+			background:  #0390fc;
+			color: white;
+			margin: 0px;
+			padding: 0px;
+		}
+		
+
+		.STUDENT {
+			width: inherit;
+			height: inherit;
+			text-align: center;
+			background: white;
+			color: black;
+			margin: 0px;
+
+
+
+		}
+		.TEACHER{
+			width: inherit;
+			height: inherit;
+			text-align: center;
+			background: #333333;
+			color: white;
+			margin: 0px;
+		}
+
+		#btn-it:focus {
+			outline: none;
+		}
+
+		#btn-it {
+			outline: none
+		}
+	</style>
+</body>
+<script data-ad-client="ca-pub-8847110458960604" async
+	src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+</html>

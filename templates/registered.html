@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Çetele - Yeni Kullanıcı Tamamlandı</title>
+	<link rel="shortcut icon" href="{{ url_for('static', filename='fav.png') }}">
+
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+</head>
+<body class="align-middle">
+	<br>
+	<a href="/" style="color:white;">Geri Dön</a>
+	<div class="container">
+		<div class="someinfo" >
+            <center><h1>Tamamlandı</h1></center>
+            <form action="/new_user" method ="POST">
+                <div >
+                    <center>
+                        <a href="/index" style="color:green">Buradan Giriş Yap</a><br>
+                        <img src="https://tetranoodle.com/wp-content/uploads/2018/07/tick-gif.gif">
+                    </center>
+                </div>
+            </form>
+		</div>
+	</div>
+	<style type="text/css">
+		.someinfo{
+			
+			top:40%;
+			
+		}
+		
+	</style>
+	<script>
+		function circleit(movement){
+			if (movement == "second") {
+				document.getElementById("play").className="far fa-play"
+			}
+			if (movement == "first") {
+				document.getElementById("play").className="far fa-play-circle"
+			}
+
+			
+
+		}
+	</script>
+	<style>
+		body{
+			background:#0390fc;
+			color:white;
+		}
+		#btn-it:focus{
+			outline: none;
+		}
+		#btn-it{
+			outline:none
+		}
+		
+	</style>
+</body>
+</html>

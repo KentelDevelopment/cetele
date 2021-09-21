@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Çetele İndirmeler</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+		integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+	<link rel="shortcut icon" href="{{ url_for('static', filename='fav.png') }}">
+	
+</head>
+<body class="align-middle">
+    <br>
+    <button style="background:none;border:0px;color:white;position: absolute;left:1%;top:1%"  onclick="window.history.back()"><i class="fa fa-arrow-circle-left"></i></button><br>
+	<div class="container" style="color:white">
+        <h1>İndirmeler</h1>
+        <p>Tıklayarak indirebilirsiniz</p>
+        <br>
+        <br>
+
+        <a href="/download/Cetele.apk" style="color: white;font-size: 19px;">Android Telefonlar için Çetele</a>
+		<a href="/download/KentelSearch.apk" style="color: white;font-size: 19px;">Kentel Search</a>
+        {% if notFound == True %}
+            <div class="alert alert-danger"><p>Üzgünüz dosya daha eklenmemiş</p><a href="/downloads">Kapat</a></div>
+        {% endif %}
+	<style>
+		body{
+			background:#0390fc;
+			color:white;
+		}
+		#btn-it:focus{
+			outline: none;
+		}
+		#btn-it{
+			outline:none
+		}
+		
+	</style>
+</body>
+</html>

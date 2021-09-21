@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Çetele - Log in Teacher</title>
+	<link rel="shortcut icon" href="{{ url_for('static', filename='fav.png') }}">
+
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+		integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+		integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+</head>
+
+<body class="align-middle">
+	<a href="/en" style="color:white;margin:10px"><i class="fas fa-arrow-alt-circle-left"></i></a>
+	<br>
+	<div class="container">
+		<h2>Çetele Teacher Login</h2>
+		<br>
+		
+		<div class="col-md-10">
+			<div >
+				<div class="card-body">
+
+					<form action=/en/teacherLogin method="POST" style="color:white">
+						<label for="email">E-mail:</label>
+						<input type="email" name="email" placeholder="E-mail..." class="form-control">
+						<br>
+						<label for="password">Password</label>
+						<input type="password" name="password" placeholder="Password..." class="form-control">
+						<br>
+
+						{% if error == True %}
+						<div class="alert alert-danger">
+							Email or password is uncorrect!
+						</div>
+						<br>
+
+						{% endif %}
+
+						<input type="submit" class="btn btn-dark" name="submit" value="Giriş Yap">
+
+						<br><br>
+						<p ><i>*You Shouldn't share personal info.</i></p>
+					</form>
+				</div>
+			</div>
+
+		</div><br><br><br>
+
+		<p style="color:wheat">Çetele <code style="color:teal">by Kentel</code></p>
+	</div>
+	<style type="text/css">
+		.someinfo {
+
+			top: 40%;
+			text-align: center;
+		}
+	</style>
+	<script>
+		function circleit(movement) {
+			if (movement == "second") {
+				document.getElementById("play").className = "far fa-play"
+			}
+			if (movement == "first") {
+				document.getElementById("play").className = "far fa-play-circle"
+			}
+
+
+
+		}
+	</script>
+	<style>
+		body {
+			background: #5588ed;
+			color: white;
+		}
+
+		#btn-it:focus {
+			outline: none;
+		}
+
+		#btn-it {
+			outline: none
+		}
+	</style>
+</body>
+
+</html>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<link rel="shortcut icon" href="{{ url_for('static', filename='fav.png') }}">
+
+    <title>Çetele - Anasayfa</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+</head>
+
+<body class="align-middle">
+    <button href="/" style="color:white;text-decoration:none;margin-top:5px;margin-left:5px;background:none;border:0px;"
+        onclick="window.history.back()">Geri Dön<i class="fa fa-sign-out-alt"
+            style="margin-left: 10px;"></i></button><br>
+    <br>
+
+    <div class="container">
+        <h1>Öğrenci Çetelesi {{ studentUsername }}</h1>
+        <h3>Sınıfı:{{ classname }}</h3>
+        <h3>Tam Adı : {{StudentFullName}}</h3>
+
+        <div class="col-md-12">
+            <center>
+
+
+                <table class="table table-dark" style="border-radius: 10px;">
+                    <thead>
+                        <tr>
+                            
+                            <th scope="col">Ders Adı</th>
+                            <th scope="col">Soru Sayısı</th>
+                            <th scope="col">Yanlış Sayısı</th>
+                            <th scope="row">Kaynak</th>
+                            <th scope="col">Güncelleme Tarihi</th>
+                            
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            
+                            <td>Matematik</td>
+                            <td>{{ mathsQuestionNumber }}</td>
+                            <td>{{ mathsMistakes }}</td>
+
+                            <td>{{ mathsSource }}</td>
+                            <td>{{ mathsDateAndTime }}</td>
+                        </tr>
+                        <tr>
+                            
+                            <td>Türkçe</td>
+                            <td>{{ turkishQuestionNumber }}</td>
+                            <td>{{ turkishMistakes }}</td>
+                            <td>{{ turkishSource }}</td>
+
+                            <td>{{ turkishDateAndTime }}</td>
+                        </tr>
+                        <tr>
+                            
+                            <td>Fen</td>
+                            <td>{{ scienceQuestionNumber }}</td>
+                            <td>{{ scienceMistakes }}</td>
+                            <td>{{ scienceSource }}</td>
+
+                            <td>{{ scienceDateAndTime }}</td>
+                        </tr>
+
+                        <tr>
+                            
+                            <td>Inkılap Tarihi</td>
+                            <td>{{ ataturkismQuestionNumber }}</td>
+                            <td>{{ ataturkismMistakes }}</td>
+                            <td>{{ ataturkismSource }}</td>
+                            <td>{{ ataturkismDateAndTime }}</td>
+                        </tr>
+
+
+                        <tr>
+                            
+                            <td>İngilizce</td>
+                            <td>{{ englishQuestionNumber }}</td>
+                            <td>{{ englishMistakes }}</td>
+                            <td>{{ englishSource }}</td>
+
+                            <td>{{ englishDateAndTime }}</td>
+                        </tr>
+                        <tr>
+                            
+                            <td>Din K.</td>
+                            <td>{{ religionQuestionNumber }}</td>
+                            <td>{{ religionMistakes }}</td>
+                            <td>{{ religionSource }}</td>
+
+                            <td>{{ religionDateAndTime }}</td>
+                        </tr>
+                        
+                        
+                    </tbody>
+                </table>
+            </center>
+
+
+        </div>
+        <style type="text/css">
+            .someinfo {
+
+                top: 40%;
+                text-align: center;
+            }
+        </style>
+
+        <style>
+            body {
+                background: #0390fc;
+                color: white;
+            }
+
+            #btn-it:focus {
+                outline: none;
+            }
+
+            #btn-it {
+                outline: none
+            }
+        </style>
+
+</body>
+
+</html>

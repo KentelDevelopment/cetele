@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+
+	
+	<title>Çetele Admin</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+		integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+		integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+	<link rel="shortcut icon" href="{{ url_for('static', filename='fav.png') }}">
+
+
+
+
+</head>
+
+<body class="align-middle">
+
+    
+    <nav class="navbar navbar-dark  bg-primary">
+        <a class="navbar-brand" href="">
+            Kentel Admin Services
+        </a>
+
+
+        
+    </nav>
+    <br>
+    
+	<div class="container">
+        <a href="/">Main Page</a>
+        <div class="col-md-7">
+            <br>
+            <form action="" method="POST">
+                <input class="form-control" placeholder="Admin Username..." name="username">
+                {% if UsernameError == True %}
+                    <label for="username" style="color:red;text-decoration: underline;">Incorrect Username !</label>
+                {% endif  %}
+
+                <br>
+                <input class="form-control" placeholder="Password..."name="password">
+                {% if PasswordError == True %}
+                    <label for="password" style="color:red;text-decoration: underline;">Incorrect Password !</label>
+
+
+                {% endif  %}
+                <br>
+                <br>
+
+                <button type="submit" class="btn btn-primary" id="loginMainButton" >Log in <i class="fas fa-user-shield"></i></button>
+
+
+            </form>
+
+        </div>
+
+    </div>
+    
+
+
+
+    <script>
+
+
+    </script>
+
+	<style>
+		body {
+			background: #fff;
+			color: white;
+		}
+
+		#btn-it:focus {
+			outline: none;
+		}
+
+		#btn-it {
+			outline: none
+		}
+        #loginMainButton:hover{
+            color:royalblue;
+            background:none;
+            transition: 1s;
+
+        }
+        #loginMainButton{
+
+
+            transition: 1s;
+            outline:none;
+
+        }
+        #loginMainButton:focus {
+            outline: none;
+        }
+	</style>
+</body>
+
+
+</html>

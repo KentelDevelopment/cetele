@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Çetele Downloads</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+		integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+	<link rel="shortcut icon" href="{{ url_for('static', filename='fav.png') }}">
+	
+</head>
+<body class="align-middle">
+    <br>
+    <button style="background:none;border:0px;color:white;position: absolute;left:1%;top:1%"  onclick="window.history.back()"><i class="fa fa-arrow-circle-left"></i></button><br>
+	<div class="container" style="color:white">
+        <h1>Downloads</h1>
+        <p>You can click to download.</p>
+        <br>
+        <br>
+
+        <a href="/en/download/Cetele.apk" style="color: white;font-size: 19px;">Çetele for android phones</a>
+        {% if notFound == True %}
+            <div class="alert alert-danger"><p>Sorry something went wrong</p><a href="/en/downloads">Close</a></div>
+        {% endif %}
+	<style>
+		body{
+			background:#0390fc;
+			color:white;
+		}
+		#btn-it:focus{
+			outline: none;
+		}
+		#btn-it{
+			outline:none
+		}
+		
+	</style>
+</body>
+</html>

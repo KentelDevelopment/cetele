@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Çetele Yazar</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" 
+    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+    <link rel="shortcut icon" href="{{url_for('static',filename='Fav2.png')}}" type="image/png" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Londrina+Solid:wght@300&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&display=swap" rel="stylesheet">   
+</head>
+<body>
+    <nav class="navbar navbar-light bg-light">
+        <a class="navbar-brand" href="">
+          <img src="{{url_for('static',filename='Fav2.png')}}" width="40" height="40" class="d-inline-block align-top" alt="">
+          Çetele Yazar 
+        </a>
+    </nav>
+    <div class="container" >
+        <h2>Çetele Yazarı Olmak</h2>
+        <div class="col-md-12">
+            <p id="maintext">"Çetele Yazarı" olmak ne midir? Ayrıcalıktır,sesleniştir. Çetele, Türk toplumunun ufkunu ileriki düzeye taşıyacak olan yazarları da unutmadı ve yazarların tüm kullanıcılara metinlerini yayımlama imkanı sundu.
+                Hem de yazar olmak için yaş sınırı yok ,sadece Türkçe'yi bilmen ve noktalama işaretlerini kullanabilmen gerekiyor.Peki ben araştırma yazılarımı ve makalelerimi yayınlayabilir miyim?
+                 Elbette ,yazılarda tür fark etmeksizin (ahlaki kurallara uyması gerek) bağımsız yazılarınızı paylaşabilirsiniz.Tamam anlaştık ama okunacak mıyım? Denemeden bilemezsin sanırım. <i>- Yazan: Efe Akaröz</i><br><br>
+
+            </p>
+            
+
+        </div>
+        <br>
+        <center>
+        <div class="col-md-9" style="text-align: center;background:#0088ff;color:white; padding: 30px;border-radius: 10px;">
+            <h2>Kayıt ve giriş</h2>
+            <br>
+            <a href="/read" class="btn btn-light">Okur yazı arama motoru</a><br>
+            <br>
+            <button class="btn btn-dark" onclick="window.location.assign('/writer/login')">Yazar hesabı ile giriş yap</button>
+            <br>
+            <br>
+            <button class="btn btn-light" onclick="window.location.assign('/writer/register')"> Yeni yazar hesabı oluştur</button><br><br>
+            <p><i>Yayımlanan metinleri veya şiirleri okuman için kayıt gerekmez,anasayfada bulabilirsin.</i></p>
+        </div>
+        </center>
+        <div class="col-md-12">
+            
+            <br>
+            <br>
+
+            <p id="secondary">Yazar olmanın en kolay yolu Çetele'den geçiyor. 
+                Eğer geleceğin değerli insanlarına bu hizmeti sunmaya hazır bir yazarsanız çok müteşekkir oluruz. Reklam yok ,kâr amacı yok .Sadece inkılap ,yenilikçilik ve edebiyat var. </p>
+                <p>“Sanatkâr, toplumda uzun mücadele ve gayretlerden sonra alnında ışığı ilk hisseden insandır.” -Mustafa Kemal Atatürk</p>
+        </div>
+        
+        
+    </div>
+
+
+    <style>
+        #maintext{
+            font-family: 'Caveat', cursive;
+            font-size: 40px;
+            transition: 0.5s;
+        
+        }
+        #secondary{
+            font-family: 'Caveat', cursive;
+            font-size: 25px;
+            transition: 0.5s;
+        
+        }
+        #logorsignin{
+            text-align: center;
+            background:#0088ff;
+            color:white; 
+            padding: 30px;
+            border-radius: 10px;
+            transition: 0.2s;
+        }
+        @media screen and (max-width: 992px) {
+        #maintext {
+            font-size: 30px;
+            transition: 0.5s;
+        }
+        }
+    </style>
+</body>
+</html>

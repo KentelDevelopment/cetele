@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+
+
+	<title>Çetele Ödev gönder</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+		integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous"> -->
+
+	<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+		integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+	<link rel="shortcut icon" href="{{ url_for('static', filename='fav.png') }}">
+	<script data-ad-client="ca-pub-8847110458960604" async
+		src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.0.0/mdb.min.css" rel="stylesheet" />
+
+
+
+
+</head>
+
+<body class="align-middle">
+	<button class="fas fa-chevron-circle-left fa-2x" onclick="window.history.back()" style="color:red;background:none;border:0px"></button>
+	<div class="container">
+		<H3 name="title">Ödevlendirme yap</H3>
+		<label for="title"><i>*Tüm Öğrencilerine Gönderir</i></label>
+
+
+
+		<div class="col-md-7">
+			<br>
+			<form action="" method="POST" enctype="multipart/form-data">
+				<input type="text" name="titleHomework" placeholder="Ödev Başlığı..." class="form-control" required>
+				<br>
+				<input type="text" name="descHomework" placeholder="Açıklama(İçerik)..." class="form-control">
+				<br>
+
+				<input type="file" name="pdffile" title="Öğrenciye Gönderilecek Dosya" ><br><br>
+
+
+
+				<input type="submit"class="btn btn-raised btn-dark" value="Ödevi Gönder">
+				
+				
+				<input type="text" name="time" id="time" style="width:1px;display:none">
+
+
+			</form>
+			{% if succeed == True %}
+					<br>
+					<div class="alert alert-success">
+						Ödev(ler) başarıyla gönderilmiş durumda !
+					</div>
+
+			{% endif %}
+			<script>
+				{% if succeed == True %}
+				setTimeout(function(){
+					window.location.assign(window.location);
+				}, 2000);
+				{% endif %}
+				function startTime() {
+					var today = new Date();
+					var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+					var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+					var dateTime = date+' '+time;
+					document.getElementById('time').value = dateTime
+
+					var t = setTimeout(startTime, 500);
+				}
+				startTime()
+				
+			</script>
+
+		</div>
+
+	</div>
+
+
+
+
+
+	<style type="text/css">
+		.someinfo {
+
+			top: 40%;
+			text-align: center;
+		}
+	</style>
+	<script>
+		function circleit(movement) {
+			if (movement == "second") {
+				document.getElementById("play").className = "far fa-play"
+			}
+			if (movement == "first") {
+				document.getElementById("play").className = "far fa-play-circle"
+			}
+
+
+
+		}
+
+	</script>
+	<style>
+		body {
+			background: #0390fc;
+			color: white;
+		}
+
+		#btn-it:focus {
+			outline: none;
+		}
+
+		#btn-it {
+			outline: none
+		}
+	</style>
+</body>
+<script data-ad-client="ca-pub-8847110458960604" async
+	src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+</html>
