@@ -12,7 +12,43 @@
 		integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
 </head>
 <body>
-    <button class="btn" onclick="window.history.back()">Geri dön</button>
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark"style="width:100%;">
+		<a class="navbar-brand" onclick="window.history.back()">Çetele</a>
+		
+		
+
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		  </button>
+		
+		  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+			<ul class="navbar-nav mr-auto">
+			  	<li class="nav-item ">
+			  		<a class="nav-link active" 
+			  		onclick="">
+						Excel'e dönüştür
+			  		</a>
+			  	
+			  	
+			  	</li>
+			  	<li class="nav-item ">
+  			  	<a 
+  			  		onclick="window.location.assign('/settings/teacher/{{username}}/{{password}}/{{mailext}}')"
+  			  		class="nav-link ">Ayarlar</a>
+				</li>
+				<li class="nav-item">
+				  	<a class="nav-link" 
+				  			onclick="window.location.assign('/SendHomework/{{username}}/{{password}}/{{mailext}}')">
+							Ödev ver
+				  	</a>
+				</li>
+			
+			</ul>
+			
+		  </div>
+	</nav>
+	
+
     <center>
 
         <h3>Öğrenci Çetelesi</h3>
@@ -37,31 +73,272 @@
         <div class="row">
             <div class="col-sm">
                 {% for userName in studentName %}
-                    <p>{{ userName }}</p>
+					{% if userName == None %}
+						<p>0</p>
+					{% else %}
+					<p>{{ userName }}</p>
+					{% endif %}
+                    
                     <br>
                 {% endfor %}
             </div>
             <div class="col-sm">
                 {% for question in questions %}
-                    <p>{{ question }}</p>
+
+					{% if question == None %}
+						<p>0</p>
+					{% else %}
+					<p>{{ question }}</p>
+					{% endif %}
+					
                     <br>
                 {% endfor %}
             </div>
             <div class="col-sm">
                 {% for mist in mistakes %}
-                    <p>{{ mist }}</p>
+				
+					{% if mist == None %}
+						<p>0</p>
+					{% else %}
+					<p>{{ mist }}</p>
+					{% endif %}
                     <br>
                 {% endfor %}
             </div>
             <div class="col-sm">
                 {% for dateis in date %}
-                    <p >{{ dateis }}</p>
+					{% if dateis == None %}
+						<p>Belirtilmemiş</p>
+						{% else %}
+						<p>{{ dateis }}</p>
+					{% endif %}
+
                     <br>
                 {% endfor %}
             </div>
         </div>
 
     </div>
+	
+	<style>
+		h2{
+			font-size:60px;
+			font-weight: 800;
+
+			font-family: 'Oswald', sans-serif;
+			font-family: 'Roboto Mono', monospace;
+			font-family: 'Smooch Sans', sans-serif;
+
+			margin-top:20px
+		}
+		body {
+			background: linear-gradient( #9e9e9e, #636363) fixed;
+			color: white;
+
+	
+	
+
+		}
+		#LoginBTN2{
+			font-size: 30px;
+			padding: 20px;
+			padding-top:100px ;
+			padding-bottom:100px;
+	
+			width: 100%;
+			background-color: #71687a;
+			color:white;
+			height: 300px;
+			border: 0px solid #000000 ;
+			border-radius: 20px;
+			box-shadow: 10px 10px 8px #888888;
+			font-family: 'Montserrat', sans-serif;
+			font-family: 'Roboto Mono', monospace;
+			font-family: 'Smooch Sans', sans-serif;
+		}
+		#registerBTN2{
+			font-size: 40px;
+			padding: 20px;
+			padding-top:100px ;
+			padding-bottom:100px;
+			font-family: 'Montserrat', sans-serif;
+			font-family: 'Roboto Mono', monospace;
+			font-family: 'Smooch Sans', sans-serif;
+
+			width: 100%;
+			background-color: #71687a;
+			color:white;
+			height: 300px;
+			border: 0px solid #000000 ;
+			border-radius: 20px;
+			box-shadow: 10px 10px 8px #888888;
+			transition: 1s;
+		}
+		#registerBTN2:hover{
+			font-size: 43px;
+			padding: 20px;
+			padding-top:100px ;
+			padding-bottom:100px;
+			font-family: 'Montserrat', sans-serif;
+			font-family: 'Roboto Mono', monospace;
+			font-family: 'Smooch Sans', sans-serif;
+
+			width: 100%;
+			background-color: #89788f;
+			transition:1s;
+			color:white;
+			height: 300px;
+			border: 0px solid #000000 ;
+			border-radius: 20px;
+			box-shadow: 10px 10px 8px #888888;
+		}
+		#LoginBTN2:hover{
+			font-size: 43px;
+			padding: 20px;
+			padding-top:100px ;
+			padding-bottom:100px;
+			font-family: 'Montserrat', sans-serif;
+			font-family: 'Roboto Mono', monospace;
+			font-family: 'Smooch Sans', sans-serif;
+
+			width: 100%;
+			background-color: #89788f;
+			transition:1s;
+			color:white;
+			height: 300px;
+			border: 0px solid #000000 ;
+			border-radius: 20px;
+			box-shadow: 10px 10px 8px #888888;
+		}
+
+		#LoginBTN{
+			font-size: 40px;
+			padding: 20px;
+			padding-top:100px ;
+			transition:1s;
+			padding-bottom:100px; 
+
+			width: 100%;
+			background-color: #687070;
+			color:white;
+			height: 300px;
+			border: 0px solid #000000 ;
+			border-radius: 20px;
+			box-shadow: 10px 10px 8px #888888;
+			font-family: 'Montserrat', sans-serif;
+			font-family: 'Roboto Mono', monospace;
+			font-family: 'Smooch Sans', sans-serif;
+			transition:1s;
+		}
+		#LoginBTN:hover{
+			font-size: 43px;
+			padding: 20px;
+			padding-top:100px ;
+			padding-bottom:100px;
+
+			width: 100%;
+			background-color: #728b8b;
+			color:white;
+			height: 300px;
+			border: 0px solid #000000 ;
+			border-radius: 20px;
+			box-shadow: 10px 10px 8px #888888;
+			font-family: 'Montserrat', sans-serif;
+			font-family: 'Roboto Mono', monospace;
+			font-family: 'Smooch Sans', sans-serif;
+			transition:1s;
+		}
+
+		#registerBTN{
+			font-size: 40px;
+			padding: 20px;
+			padding-top:100px ;
+			padding-bottom:100px;
+			font-family: 'Montserrat', sans-serif;
+			font-family: 'Roboto Mono', monospace;
+			font-family: 'Smooch Sans', sans-serif;
+			margin-right: 20px;
+
+			width: 100%;
+			background-color: #687070;
+			color:white;
+			height: 300px;
+			border: 0px solid #000000 ;
+			border-radius: 20px;
+			box-shadow: 10px 10px 8px #888888;
+			transition:1s
+		}
+		#registerBTN:hover{
+			font-size: 42px;
+			padding: 20px;
+			padding-top:100px ;
+			margin-right: 20px;
+			padding-bottom:100px;
+
+			width: 100%;
+			background-color: #728b8b;
+			color:white;
+			height: 300px;
+			border: 0px solid #000000 ;
+			border-radius: 20px;
+			box-shadow: 10px 10px 8px #888888;
+			font-family: 'Montserrat', sans-serif;
+			font-family: 'Roboto Mono', monospace;
+			font-family: 'Smooch Sans', sans-serif;
+			transition:1s;
+		}
+		.AllBG{
+			background: linear-gradient( #9e9e9e, #636363);
+
+			width: 100%;
+
+			text-align: center;
+	
+		}
+
+		.STUDENT {
+			width: 100%;
+
+			text-align: center;
+			background: #0390fc;
+			color: white;
+			margin: 0px;
+
+
+
+
+		}
+
+		.TEACHER {
+			width: 100%;
+
+			text-align: center;
+			background: #333333;
+			color: white;
+			margin: 0px;
+		}
+
+		#btn-it:focus {
+			outline: none;
+		}
+
+		#btn-it {
+			outline: none
+		}
+
+		.writer {
+			width: 100%;
+
+			text-align: center;
+			background: none;
+			color: white;
+			margin: 0px;
+	
+
+
+		}
+
+	</style>
 
 
 </body>

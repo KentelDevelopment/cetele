@@ -4,87 +4,144 @@
 <head>
 
 
-
-	<title>Çetele Öğrenci takip platformu.</title>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+	<title>Çetele | Anasayfa</title>
+	<link rel="manifest" href="/static/manifest.webmanifest">
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+	<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+	<meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
+	<meta content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=no;" name="viewport"/>
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+	<meta content="Çetele" name="apple-mobile-web-app-title"/>
+	<link rel="icon" type="image/png" href="/static/fav.jpeg"/>
+	<link rel="apple-touch-icon"  href="/static/fav.jpeg"/>
+	<link rel="apple-touch-startup-image"  href="/static/Fav.jpeg"/>
+	
+	<link rel="apple-touch-icon" href="/static/fav.png">
+	<link href="/static/splashscreens/iphone5_splash.png" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image">
+	<link href="/static/splashscreens/iphone6_splash.png" media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image">
+	<link href="/static/splashscreens/iphoneplus_splash.png" media="(device-width: 621px) and (device-height: 1104px) and (-webkit-device-pixel-ratio: 3)" rel="apple-touch-startup-image">
+	<link href="/static/splashscreens/iphonex_splash.png" media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3)" rel="apple-touch-startup-image">
+	<link href="/static/splashscreens/iphonexr_splash.png" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image">
+	<link href="/static/splashscreens/iphonexsmax_splash.png" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3)" rel="apple-touch-startup-image">
+	<link href="/static/splashscreens/ipad_splash.png" media="(device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image">
+	<link href="/static/splashscreens/ipadpro1_splash.png" media="(device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image">
+	<link href="/static/splashscreens/ipadpro3_splash.png" media="(device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image">
+	<link href="/static/splashscreens/ipadpro2_splash.png" media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image">
+	<meta name="apple-mobile-web-app-status-bar-style" content="blue">
+	
+	
+	
+	
+	
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
 		integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-	<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
-		integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
 	<link rel="shortcut icon" href="{{ url_for('static', filename='fav.png') }}">
-	<script data-ad-client="ca-pub-8847110458960604" async
-		src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+	
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
 		integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg=="
 		crossorigin="anonymous"></script>
-
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto+Mono&display=swap" rel="stylesheet">
 	<link rel="preconnect" href="https://fonts.gstatic.com">
 	<link href="https://fonts.googleapis.com/css2?family=Londrina+Solid:wght@300&display=swap" rel="stylesheet">
 
 	<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&display=swap" rel="stylesheet">
-
-
-
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Oswald:wght@500&family=Roboto+Mono&family=Smooch+Sans:wght@800&display=swap" rel="stylesheet">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto+Mono&family=Smooch+Sans:wght@800&display=swap" rel="stylesheet">
+	
 </head>
 
-<body class="align-middle">
+<body >
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark"style="width:100%;">
+		<a class="navbar-brand" href="">Çetele</a>
+		
+		
+
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		  </button>
+		
+		  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+			<ul class="navbar-nav mr-auto">
+			  <li class="nav-item active">
+				<a class="nav-link active" href="/">Anasayfa <span class="sr-only">(current)</span></a>
+			  </li>
+			  <li class="nav-item">
+				<a class=" nav-link" href="/about">Hakkında</a>
+			  </li>
+			 
+			  <li class="nav-item">
+				<a class=" nav-link" href="/how_to_use">Nasıl Kullanılır</a>
+			  </li>
+			</ul>
+			
+		  </div>
+	</nav>
+	<div class="container ">
 
 
-	<div class="STUDENT" style="width:100%;height:100%;transition: 0.2s;">
+	<div  style="width:100%;height:100%;transition: 0.2s;">
 		<p id="ipapi" style="display:none;"></p>
 		<h2 style="display: none;">Efe Akaröz Tarafından 2020 yılında kentel adı altında yapılmıştır.</h2>
 		<br>
-		<h2> <code style="color:antiquewhite">Kentel </code> Çetele Öğrenci</h2>
+		<h2 > <code style="color:antiquewhite"> </code> Çetele Öğrenci</h2>
 		<br>
 		<br><br>
-		<button class="btn btn-dark" onclick="window.location.assign('/new_user')" onmouseover="circleit('first')"
-			onmouseout="circleit('second')" id="btn-it">Şimdi Başla <i class="fas fa-play" style="margin-left: 10px;"
-				id="play"></i></button>
+		<div class="row">
+			<div class="col">
+				<button id="LoginBTN" onclick="window.location.assign('/index')">Giriş Yap</button>
+			</div>
+			<div class="col" >
+				<button id="registerBTN" onclick="window.location.assign('/new_user')">Kayıt Ol</button>
+
+			</div>
+		</div>
 		<br><br>
 
-		<br>
-		<br>
-		<button class="btn btn-dark" onclick="window.location.assign('/index')" onmouseover="circleit('firsy')"
-			onmouseout="circleit('second')" id="btn-it">Giriş Yap <i class="far fa-user-circle"
-				style="margin-left: 10px;" id="play"></i></button>
-		<br><br>
-
-		<p ><i>Kentel'in sizler için tasarladığı ve yazdığı ,soru takibi ,ödevlendirme ve canlı ders
-				platformu olan Çetele Efe Akaröz tarafından 2020 yılında herkesin kullanımına resmen açılmıştır.
-				"Büyük başarılar, değerli anaların yetiştirdikleri seçkin çocukların yardımıyla meydana gelir." -
+		<p ><i>
+				"Büyük başarılar, değerli anaların yetiştirdikleri seçkin çocukların yardımıyla meydana gelir." 
 				Mustafa Kemal Atatürk<code
 					style="color:cadetblue;display: none;">Bilgilendirme için sayfanın en altına bakınız.</code></i></p>
 		<br>
 
 		<br>
-	</div>
 
 
-	<div class="TEACHER" style="text-align: center;transition: 1s;">
+
+	
 		<br>
-		<H2 style="font-family: sans-serif;"><code style="color:aliceblue">Kentel </code> Çetele Öğretmen</H2>
+		<H2 ><code style="color:aliceblue"> </code> Çetele Öğretmen</H2>
 		<br><br>
-		<button class="btn btn-light" onclick="window.location.assign('/ogretmenKayıt')" id="btn-it">Şimdi Başla <i
-				class="fas fa-business-time"></i></button>
-		<br><br>
+		<div class="row">
+			<div class="col">
+				<button id="LoginBTN2" onclick="window.location.assign('/teacherLogin')">Giriş Yap</button>
+			</div>
+			<div class="col" >
+				<button id="registerBTN2"onclick="window.location.assign('/ogretmenKayıt')">Kayıt Ol</button>
+
+			</div>
+		</div>
 		<br>
 		<br>
-		<button class="btn btn-light" onclick="window.location.assign('/teacherLogin')" id="btn-it">Giriş Yap <i
-				class="fas fa-hotel"></i></button>
 		<br>
 		<br>
-		<br>
-		<br>
-		<p style="color:white"><i>Kentel'in öğretmenler ve öğrenciler için hazırladığı Çetele resmen kullanıma
+		<p style="color:white"><i>Takımımızın öğretmenler ve öğrenciler için hazırladığı Çetele resmen kullanıma
 				sunulmuştur. "Gelecek gençlerin,gençler ise öğretmenlerin eseridir." Mustafa Kemal Atatürk </i></p>
 		<br>
 		<br>
 
 	</div>
 	<div class="writer">
-		<h2> <code style="color:black">Kentel </code> Çetele Yazar</h2>
+		<h2> <code style="color:black"> </code> Çetele Yazar</h2>
 		<br>
 		<br>
 		<p id="maintext">"Çetele Yazarı" olmak ne midir? Ayrıcalıktır,sesleniştir. Çetele, Türk toplumunun ufkunu ileriki düzeye taşıyacak olan yazarları da unutmadı ve yazarların tüm kullanıcılara metinlerini yayımlama imkanı sundu.
@@ -102,95 +159,6 @@
 
 
 
-	<div class="DOCS" style="width:inherit;height:inherit;background:#0390fc;transition: 1s;">
-		<br>
-		<br>
-		<h2 style="margin-left: 10px;">Belgeler ve Yardım</h2>
-		<br>
-		<br>
-
-
-		<h3 style="margin-left: 20px;">Öğrenciler için Kayıt:</h3>
-		<br>
-
-		<ol style="margin-left: 30px;">
-			<li>Öğrenci başlığı altından şimdi başla düğmesine tıklayın.</li>
-			<li>E-posta ve şifrenizi ayarlayın.</li>
-			<li>Kayıt olduktan sonra "Giriş yap" düğmesine tıklayıp hesabınıza giriş yapabilirsiniz.</li>
-		</ol>
-		<br><br>
-		<h3 style="margin-left: 20px;">Öğretmenler için Kayıt:</h3>
-		<ol style="margin-left: 30px;">
-			<li>Öğretmen başlığı altından şimdi başla düğmesine tıklayın.</li>
-			<li>E-postanızı, şifrenizi ve tam isminizi ayarlayın.</li>
-			<li>Kayıt ol düğmesine basın.</li>
-			<li>Kayıt olduktan sonra "Giriş yap" düğmesine tıklayıp hesabınıza giriş yapabilirsiniz.</li>
-		</ol>
-		<br><br><br>
-
-
-
-		<h3 style="margin-left: 20px;">(Öğrenci) Nasıl soru ekleyebilirim?</h3>
-		<br>
-		<ol style="margin-left: 30px;">
-			<li>Giriş yaptıktan sonra açılan kullanıcı arayüzünde branşlar belirir.</li>
-			<li>Soru sayısı yüklemek istediğiniz branşın üzerine tıklayın ve sayfayı aşağıya kaydırın.</li>
-			<li>Sayfanın altında beliren formu doldurup onaylayın.</li>
-
-		</ol>
-		<br><br>
-		<h3 style="margin-left: 20px;">(Öğrenci) Kullanıcı adım ne?</h3>
-		<br>
-		<ol style="margin-left: 30px;">
-			<li>Giriş yaptıktan sonra açılan kullanıcı arayüzünün sağ üst kısmında çark ikonu belirir.</li>
-			<li>Bu ikona tıklayıp kullanıcı bilgilerinizi görebilirsiniz.</li>
-
-		</ol>
-
-		<br><br>
-		<h3 style="margin-left: 20px;">(Öğretmen) Nasıl öğrencilerimi sayfama ekleyebilirim?</h3>
-		<br>
-		<ol style="margin-left: 30px;">
-			<li>Hesabınıza giriş yapın.</li>
-			<li>Anasayfanızda beliren beyaz "Öğrenci Ekle" butonuna tıklayın.</li>
-			<li>Açılan forma öğrencinin kullanıcı adını ve numarasını girin.</li>
-			<li>Ekle butonuna tıkladıktan sonra öğrenci eklenecektir</li>
-
-		</ol>
-		<br><br>
-		<h3 style="margin-left: 20px;">(Öğretmen) Öğrencilerime nasıl Zoom adresimi yollayabilirim?</h3>
-		<br>
-		<ol style="margin-left: 30px;">
-			<li>Hesabınıza giriş yapın.</li>
-			<li>Anasayfanızda beliren beyaz "Canlı ders Ekle" butonuna tıklayın.</li>
-			<li>Açılan penceredeki formu doldurup "Ekle"ye basın.</li>
-			<li>Anasayfanızdaki öğrencilerin tamamına gönderilmiştir.</li>
-
-		</ol>
-		<br>
-		<br>
-		<h3 style="margin-left: 20px;">(Öğretmen) Öğrencilerime nasıl ödev göndereceğim?</h3>
-		<br>
-		<ol style="margin-left: 30px;">
-			<li>Hesabınıza giriş yapın.</li>
-			<li>Sayfanız'ın sağ tarafında beliren kağıt uçak ikonuna tıklayın.</li>
-			<li>Ödev başlığı ve açıklamasını girerek siyah "ÖDEVİ GÖNDER " butonuna tıklayın.</li>
-
-		</ol>
-
-		<br>
-		<div class="extra" style="margin-left:20px;color:white;">
-			<p>Harici Adresler:</p>
-			<a href="https://www.cetele.website/about" style="color:white">Hakkında</a>
-			<br>
-			<a href="https://www.cetele.website/downloads" style="color:white">İndirmeler</a>
-		</div>
-		
-
-
-
-
-	</div>
 	
 		
 
@@ -201,13 +169,7 @@
 
 
 
-	<style type="text/css">
-		.someinfo {
-
-			top: 40%;
-			text-align: center;
-		}
-	</style>
+	
 	<script>
 		function circleit(movement) {
 			if (movement == "second") {
@@ -222,7 +184,7 @@
 		}
 
 	</script>
-
+	</div>
 
 
 	<script>
@@ -260,18 +222,183 @@
 
 
 	<style>
+		h2{
+			font-size:60px;
+			font-weight: 800;
+
+			font-family: 'Oswald', sans-serif;
+			font-family: 'Roboto Mono', monospace;
+			font-family: 'Smooch Sans', sans-serif;
+
+			margin-top:20px
+		}
 		body {
-			background: #0390fc;
+			background: linear-gradient( #9e9e9e, #636363)fixed;
 			color: white;
-			margin: 0px;
-			padding: 0px;
+			
+			
 
 		}
+		#LoginBTN2{
+			font-size: 30px;
+			padding: 20px;
+			padding-top:100px ;
+			padding-bottom:100px;
+			
+			width: 100%;
+			background-color: #71687a;
+			color:white;
+			height: 300px;
+			border: 0px solid #000000 ;
+			border-radius: 20px;
+			box-shadow: 10px 10px 8px #888888;
+			font-family: 'Montserrat', sans-serif;
+			font-family: 'Roboto Mono', monospace;
+			font-family: 'Smooch Sans', sans-serif;
+		}
+		#registerBTN2{
+			font-size: 40px;
+			padding: 20px;
+			padding-top:100px ;
+			padding-bottom:100px;
+			font-family: 'Montserrat', sans-serif;
+			font-family: 'Roboto Mono', monospace;
+			font-family: 'Smooch Sans', sans-serif;
 
+			width: 100%;
+			background-color: #71687a;
+			color:white;
+			height: 300px;
+			border: 0px solid #000000 ;
+			border-radius: 20px;
+			box-shadow: 10px 10px 8px #888888;
+			transition: 1s;
+		}
+		#registerBTN2:hover{
+			font-size: 43px;
+			padding: 20px;
+			padding-top:100px ;
+			padding-bottom:100px;
+			font-family: 'Montserrat', sans-serif;
+			font-family: 'Roboto Mono', monospace;
+			font-family: 'Smooch Sans', sans-serif;
 
+			width: 100%;
+			background-color: #89788f;
+			transition:1s;
+			color:white;
+			height: 300px;
+			border: 0px solid #000000 ;
+			border-radius: 20px;
+			box-shadow: 10px 10px 8px #888888;
+		}
+		#LoginBTN2:hover{
+			font-size: 43px;
+			padding: 20px;
+			padding-top:100px ;
+			padding-bottom:100px;
+			font-family: 'Montserrat', sans-serif;
+			font-family: 'Roboto Mono', monospace;
+			font-family: 'Smooch Sans', sans-serif;
+
+			width: 100%;
+			background-color: #89788f;
+			transition:1s;
+			color:white;
+			height: 300px;
+			border: 0px solid #000000 ;
+			border-radius: 20px;
+			box-shadow: 10px 10px 8px #888888;
+		}
+		
+		#LoginBTN{
+			font-size: 40px;
+			padding: 20px;
+			padding-top:100px ;
+			transition:1s;
+			padding-bottom:100px; 
+
+			width: 100%;
+			background-color: #687070;
+			color:white;
+			height: 300px;
+			border: 0px solid #000000 ;
+			border-radius: 20px;
+			box-shadow: 10px 10px 8px #888888;
+			font-family: 'Montserrat', sans-serif;
+			font-family: 'Roboto Mono', monospace;
+			font-family: 'Smooch Sans', sans-serif;
+			transition:1s;
+		}
+		#LoginBTN:hover{
+			font-size: 43px;
+			padding: 20px;
+			padding-top:100px ;
+			padding-bottom:100px;
+
+			width: 100%;
+			background-color: #728b8b;
+			color:white;
+			height: 300px;
+			border: 0px solid #000000 ;
+			border-radius: 20px;
+			box-shadow: 10px 10px 8px #888888;
+			font-family: 'Montserrat', sans-serif;
+			font-family: 'Roboto Mono', monospace;
+			font-family: 'Smooch Sans', sans-serif;
+			transition:1s;
+		}
+		
+		#registerBTN{
+			font-size: 40px;
+			padding: 20px;
+			padding-top:100px ;
+			padding-bottom:100px;
+			font-family: 'Montserrat', sans-serif;
+			font-family: 'Roboto Mono', monospace;
+			font-family: 'Smooch Sans', sans-serif;
+			margin-right: 20px;
+
+			width: 100%;
+			background-color: #687070;
+			color:white;
+			height: 300px;
+			border: 0px solid #000000 ;
+			border-radius: 20px;
+			box-shadow: 10px 10px 8px #888888;
+			transition:1s
+		}
+		#registerBTN:hover{
+			font-size: 42px;
+			padding: 20px;
+			padding-top:100px ;
+			margin-right: 20px;
+			padding-bottom:100px;
+
+			width: 100%;
+			background-color: #728b8b;
+			color:white;
+			height: 300px;
+			border: 0px solid #000000 ;
+			border-radius: 20px;
+			box-shadow: 10px 10px 8px #888888;
+			font-family: 'Montserrat', sans-serif;
+			font-family: 'Roboto Mono', monospace;
+			font-family: 'Smooch Sans', sans-serif;
+			transition:1s;
+		}
+		.AllBG{
+			background: linear-gradient( #9e9e9e, #636363);
+
+			width: 100%;
+
+			text-align: center;
+			
+		}
+		
 		.STUDENT {
-			width: inherit;
-			height: inherit;
+			width: 100%;
+
 			text-align: center;
 			background: #0390fc;
 			color: white;
@@ -283,8 +410,8 @@
 		}
 
 		.TEACHER {
-			width: inherit;
-			height: inherit;
+			width: 100%;
+
 			text-align: center;
 			background: #333333;
 			color: white;
@@ -300,36 +427,20 @@
 		}
 
 		.writer {
-			width: inherit;
-			height: inherit;
+			width: 100%;
+
 			text-align: center;
-			background: white;
-			color: black;
+			background: none;
+			color: white;
 			margin: 0px;
 			
 
 
 		}
-		@media screen and (max-width: 992px) {
-			#maintext {
-				font-size: 30px;
-				transition: 0.5s;
-			}
-        }
-		#maintext{
-            font-family: 'Caveat', cursive;
-            font-size: 40px;
-            transition: 0.5s;
-        
-        }
-		@media screen and (max-width: 800px) {
-			#maintext{
-				font-size: 25px;
-			}
-		}
+		
 	</style>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
 </body>
-<script data-ad-client="ca-pub-8847110458960604" async
-	src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
 
 </html>

@@ -1,0 +1,15 @@
+{
+    "background_color": "#575757",
+    "description": "Çetele",
+    "display": "fullscreen",
+    "icons": [
+      {
+        "src": "/static/Fav.png",
+        "sizes": "192x192",
+        "type": "image/png"
+      }
+    ],
+    "name": "Çetele",
+    "short_name": "Çetele",
+    "start_url": "/"
+  }

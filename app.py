@@ -1,7 +1,6 @@
 from flask import Flask, render_template, request, redirect, Blueprint, send_file,jsonify,send_from_directory
 from errors.handlers import errors
 import pyrebase
-import smtplib
 import subprocess,urllib
 import requests
 from bs4 import BeautifulSoup
@@ -11,6 +10,11 @@ import time
 import csv
 from cryptography.fernet import Fernet
 import base64
+from email.mime.multipart import MIMEMultipart
+from email.mime.text import MIMEText
+import smtplib
+import psutil
+
 
 
 key = b'sJjlXtamtK6jFAWGy4j_EiA1VhZImH0PIsp-DGW4Dpg='
@@ -65,6 +69,27 @@ writerAuth = firebaseWriter.auth()
 
 
 
+unknownChars = ["#","?","/","\\"]
+
+
+
+
+
+
+
+
+def notify(reciever,message,title):
+    server = smtplib.SMTP('smtp.gmail.com', 587)
+    server.ehlo()
+    server.starttls()
+    gmail_sender = 'sakizteam@gmail.com'
+    gmail_passwd = 'efe12345'
+    
+    message = 'Subject: {}\n\n{}'.format(title,message)
+    server.login(gmail_sender, gmail_passwd)
+
+
+    server.sendmail(gmail_sender,reciever,message.encode('utf-8'))
 
 
 
@@ -151,12 +176,20 @@ def new_user():
         if password == password_again:
             try:
                 username = email.split('@')
+
                 data = {
                     'username': username[0],
                     'counter': 0,
                     'connect': False
                 }
-
+                for c in unknownChars:
+                    if c in password:
+                        return render_template("new_user.html",passwordCharError=True)
+                    if c in username[0]:
+                        return render_template("new_user.html",userNameCharError=True)
+                    else:
+                        pass
+                
                 auth.create_user_with_email_and_password(email, password)
 
                 db.child('Users').child(username[0]).set(data)
@@ -376,6 +409,13 @@ def teacherregister():
         schoolLevel = request.form["schoolLevel"]
         email = emailNotReal.lower()
         try:
+            for c in unknownChars:
+                if c in password:
+                    return render_template("teacherRegister.html",passwordCharError=True)
+                if c in username[0]:
+                    return render_template("teacherRegister.html",userNameCharError=True)
+                else:
+                    pass
             auth.create_user_with_email_and_password(email, password)
             username = email.split('@')
             data = {
@@ -433,11 +473,12 @@ def teacherDashboard(usernameN0, password0, mailservice0):
                         'students').child(new_student_name).set(data)
                     return redirect(f"/ogretmenAndusername='{encrypt(username)}'Andpwd='{encrypt(password)}'AndmailService='{encrypt(mailservice)}'")
                 else:
-                    return redirect(f"/ogretmenAndusername='{encrypt(username)}'Andpwd='{encrypt(password)}'AndmailService='{encrypt(mailservice)}'")
+                    return redirect(f"/ogretmenAndusername='{encrypt(username)}'Andpwd='{encrypt(password)}'AndmailService='{encrypt(mailservice)}'?schoolNumberIsNotMatching=yes")
 
         # deleteStudents
         if request.form['submit'] == "Sil":
             student = request.form['HoverStudentIs']
+            db.child("Users").child("teachers").child(username).child("students").child(student).remove()
             return redirect(f"/ogretmenAndusername='{encrypt(username)}'Andpwd='{encrypt(password)}'AndmailService='{encrypt(mailservice)}'")
 
     if request.method == "GET":
@@ -453,7 +494,11 @@ def teacherDashboard(usernameN0, password0, mailservice0):
 
                     students = db.child('Users').child('teachers').child(
                         username).child('students').get().val()
-
+                    scNoErrorM = request.args.get("schoolNumberIsNotMatching")
+                    if scNoErrorM =="yes":
+                        scNoErrorM = True
+                    else:
+                        scNoErrorM=False
                     
                     if students == None:
                         print('Students Not Found')
@@ -467,9 +512,10 @@ def teacherDashboard(usernameN0, password0, mailservice0):
                         if FullNameStudent == None:
                             FullNameStudent = st
                         studentsWithFullName.insert(0,FullNameStudent)
-
+                    
+                    
                     return render_template('teacherDashboard.html', teachername=fullName, students=students,
-                                           username=username, mailext=mailservice, password=password,mailextention=mailservice)
+                                           username=username, mailext=mailservice, password=password,mailextention=mailservice,encrypt=encrypt,decrypt=decrypt,scNoErrorM=scNoErrorM)
                 except:
                     return redirect('/teacherLogin')
 
@@ -479,6 +525,68 @@ def teacherDashboard(usernameN0, password0, mailservice0):
         else:
             return redirect(f"/dashboardUsername='{encrypt(username)}'AndPassword='{encrypt(password)}'Email='{encrypt(mailservice)}'")
 
+
+"""UPDATE"""
+
+@app.route("/studentRequests")
+def studentRequests():
+    try:
+        username = decrypt(request.args.get("username"))
+        mailext = decrypt(request.args.get("mailExt"))
+        password = decrypt(request.args.get("password"))
+        email = username+"@"+mailext
+        data = {
+            "username":username,
+            "mailext":mailext,
+            "password":password,
+            "email":email
+        }
+        requests_ = db.child("Users").child("teachers").child(username).child("requests").get().val()
+    
+        auth.sign_in_with_email_and_password(email,password)
+        return render_template("StudentRequests.html",username=username,mailext=mailext,password=password,encrypt=encrypt,requests=requests_)
+    except:
+        return "403"
+@app.route("/request",methods=["POST","GET"])
+def request_():
+    import time
+    teacher_username = request.args.get("teacher_username")
+    teacher_mailext = request.args.get("mailext")
+    teacherData = db.child("Users").child("teachers").child(teacher_username).get().val()
+    
+    if request.method == "POST":
+        email = request.form.get("email")
+        password=request.form.get("password")
+        username = email.split("@")[0]
+        data = {
+            "student":username,
+            "studentMail":email,
+            "teacher":teacher_username,
+            "sentTime":time.ctime(time.time()),
+            "waiting":True
+        }
+        try:
+            auth.sign_in_with_email_and_password(email,password)
+            db.child("Users").child("teachers").child(teacher_username).child("requests").child(username).set(data)
+            try:
+                notify(teacher_username+"@"+teacher_mailext,f"{str(username)} kullanıcı adlı öğrenci {time.ctime(time.time())} zamanında size öğrenciniz olma talebinde bulundu. Çetele'ye giriş yaptıktan sonra öğrenci istekleri bölümünden gereğini yapabilirisiniz.","Yeni Öğrenci İsteği")
+                notify(email,f"Öğrenci isteğinizi öğretmeninize ulaştırdık kabul ve red durumunda sizi bilgilendireceğiz. \n\n Çetele","İşlem başarılı")
+                
+            except Exception as e:
+                return str(e)
+            return render_template("SendRequest.html",requestSent=True)
+        except:
+            return render_template("SendRequest.html",passwordOrEmailNotCorrect=True)
+        
+    
+    if teacherData != None:
+            #here 
+            teacherName = db.child("Users").child("teachers").child(teacher_username).child("FullName").get().val()
+            return render_template("SendRequest.html",teacherName=teacherName)
+    else:
+        return render_template("SendRequest.html",error="Adres hatalı veya eksik.")
+    
+ #END UPDATE 
 
 # deleteStudent
 @app.route('/DeleteStudent<username>And<password>WillDelete<student>AND<mailservice>', methods=['POST', 'GET'])
@@ -664,8 +772,15 @@ def saveToCSV(username, password, mailext, branch):
 
                 studentList = db.child(
                     f"Users/teachers/{username}/students").get().val()
-
-                with open('files/saved.csv', 'w') as csvfile:
+                    
+                import random
+                value = random.randint(5,5000)
+                from flask import safe_join
+                
+                
+                
+               
+                with open(f'files/saved{value}.csv', 'w') as csvfile:
                     cr = csv.reader(csvfile)
                     cw = csv.writer(csvfile, delimiter=',')
 
@@ -695,11 +810,13 @@ def saveToCSV(username, password, mailext, branch):
                                     "0", "Yok","00.00"]
                         
                         cw.writerow(lister)
+                safe_path = safe_join("./files",f"saved{value}.csv")
+                
 
-                return send_from_directory(directory='files', filename='saved.csv')
+                return send_file(safe_path,as_attachment=True)
  
-            except:
-                return redirect('/')
+            except Exception as e:
+                return str(e)
 
         else:
             return "<script>alert('Öğrencilerin yapmasına izin verilmeyen işlemi yapmaktan suçlu bulundunuz!')</script>"
@@ -1073,7 +1190,7 @@ def SendHomework(username,password,mailext):
 
         for st in students:
             db.child('Users').child(st).child('homework').child(time).set(data)
-        return render_template('homework/sendHomework.html',succeed=True)
+        return render_template('homework/sendHomework.html',succeed=True,usename=username,password=password,mailext=mailext)
 
     if request.method == "GET":
 
@@ -1085,7 +1202,7 @@ def SendHomework(username,password,mailext):
                 return "Öğrenciler Kendilerine Ödev yazamazlar!"
             else:
 
-                return render_template('homework/sendHomework.html')
+                return render_template('homework/sendHomework.html',username=username,password=password,mailext=mailext)
         except:
             return redirect('/')
 
@@ -2520,7 +2637,7 @@ def admin_data(username,password,mailext):
 
 
 if __name__ == "__main__":
-    app.run(debug=True,threaded=True)
+    app.run(debug=True,threaded=True,port=1313,host="0.0.0.0")
 
 
 

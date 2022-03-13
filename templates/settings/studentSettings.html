@@ -21,15 +21,27 @@
 </head>
 
 <body class="align-middle">
-    <nav class="navbar navbar-light bg-light">
-        <a class="navbar-brand" href="">
-          <img src="https://icons.iconarchive.com/icons/osullivanluke/orb-os-x/128/Settings-icon.png" width="30" height="30" class="d-inline-block align-top" alt="">
-          Hesap Monitörü - Çetele
-        </a>
-    </nav>
-    <button class="far fa-arrow-alt-circle-left" style="background:none;color:white;border:0px" onclick="window.history.back()"></button>
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark"style="width:100%;">
+		<a class="navbar-brand" onclick="window.history.back()">Çetele</a>
+		
+		
 
-	<div class="container">
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		  </button>
+		
+		  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+			<ul class="navbar-nav mr-auto">
+			  <li class="nav-item active">
+				<a class="nav-link active" href="/">Ayarlar <span class="sr-only">(current)</span></a>
+			  </li>
+			  
+			</ul>
+			
+		  </div>
+	</nav>
+    
+	<div class="container"><br><br>
         <h3>Hesabım</h3>
         <div class="col-md-6">
 
@@ -46,12 +58,10 @@
             <p>Okul Numaram : {{ schoolNum }}</p>
 
 			<br>
-			<h2>Temalar:</h2>
-			<ul class="list-group">
-				<li class="list-group-item" style="color:black">Orijinal Çetele teması <br><div id="default" style="background-color:#0390fc;width:30px;height: 30px;border-radius: 10px;"></div></li>
-				
-			</ul>
+			
         </div>
+		<br><br>
+		<p>Geri dönmek için Çetele yazısına tıklayın</p>
     </div>
 	
 
@@ -81,9 +91,201 @@
 
 	</script>
 	<style>
+		h2{
+			font-size:60px;
+			font-weight: 800;
+
+			font-family: 'Oswald', sans-serif;
+			font-family: 'Roboto Mono', monospace;
+			font-family: 'Smooch Sans', sans-serif;
+
+			margin-top:20px
+		}
 		body {
+			background: linear-gradient( #9e9e9e, #636363)fixed;
+			color: white;
+
+			
+			
+
+		}
+		#LoginBTN2{
+			font-size: 30px;
+			padding: 20px;
+			padding-top:100px ;
+			padding-bottom:100px;
+			
+			width: 100%;
+			background-color: #71687a;
+			color:white;
+			height: 300px;
+			border: 0px solid #000000 ;
+			border-radius: 20px;
+			box-shadow: 10px 10px 8px #888888;
+			font-family: 'Montserrat', sans-serif;
+			font-family: 'Roboto Mono', monospace;
+			font-family: 'Smooch Sans', sans-serif;
+		}
+		#registerBTN2{
+			font-size: 40px;
+			padding: 20px;
+			padding-top:100px ;
+			padding-bottom:100px;
+			font-family: 'Montserrat', sans-serif;
+			font-family: 'Roboto Mono', monospace;
+			font-family: 'Smooch Sans', sans-serif;
+
+			width: 100%;
+			background-color: #71687a;
+			color:white;
+			height: 300px;
+			border: 0px solid #000000 ;
+			border-radius: 20px;
+			box-shadow: 10px 10px 8px #888888;
+			transition: 1s;
+		}
+		#registerBTN2:hover{
+			font-size: 43px;
+			padding: 20px;
+			padding-top:100px ;
+			padding-bottom:100px;
+			font-family: 'Montserrat', sans-serif;
+			font-family: 'Roboto Mono', monospace;
+			font-family: 'Smooch Sans', sans-serif;
+
+			width: 100%;
+			background-color: #89788f;
+			transition:1s;
+			color:white;
+			height: 300px;
+			border: 0px solid #000000 ;
+			border-radius: 20px;
+			box-shadow: 10px 10px 8px #888888;
+		}
+		#LoginBTN2:hover{
+			font-size: 43px;
+			padding: 20px;
+			padding-top:100px ;
+			padding-bottom:100px;
+			font-family: 'Montserrat', sans-serif;
+			font-family: 'Roboto Mono', monospace;
+			font-family: 'Smooch Sans', sans-serif;
+
+			width: 100%;
+			background-color: #89788f;
+			transition:1s;
+			color:white;
+			height: 300px;
+			border: 0px solid #000000 ;
+			border-radius: 20px;
+			box-shadow: 10px 10px 8px #888888;
+		}
+		
+		#LoginBTN{
+			font-size: 40px;
+			padding: 20px;
+			padding-top:100px ;
+			transition:1s;
+			padding-bottom:100px; 
+
+			width: 100%;
+			background-color: #687070;
+			color:white;
+			height: 300px;
+			border: 0px solid #000000 ;
+			border-radius: 20px;
+			box-shadow: 10px 10px 8px #888888;
+			font-family: 'Montserrat', sans-serif;
+			font-family: 'Roboto Mono', monospace;
+			font-family: 'Smooch Sans', sans-serif;
+			transition:1s;
+		}
+		#LoginBTN:hover{
+			font-size: 43px;
+			padding: 20px;
+			padding-top:100px ;
+			padding-bottom:100px;
+
+			width: 100%;
+			background-color: #728b8b;
+			color:white;
+			height: 300px;
+			border: 0px solid #000000 ;
+			border-radius: 20px;
+			box-shadow: 10px 10px 8px #888888;
+			font-family: 'Montserrat', sans-serif;
+			font-family: 'Roboto Mono', monospace;
+			font-family: 'Smooch Sans', sans-serif;
+			transition:1s;
+		}
+		
+		#registerBTN{
+			font-size: 40px;
+			padding: 20px;
+			padding-top:100px ;
+			padding-bottom:100px;
+			font-family: 'Montserrat', sans-serif;
+			font-family: 'Roboto Mono', monospace;
+			font-family: 'Smooch Sans', sans-serif;
+			margin-right: 20px;
+
+			width: 100%;
+			background-color: #687070;
+			color:white;
+			height: 300px;
+			border: 0px solid #000000 ;
+			border-radius: 20px;
+			box-shadow: 10px 10px 8px #888888;
+			transition:1s
+		}
+		#registerBTN:hover{
+			font-size: 42px;
+			padding: 20px;
+			padding-top:100px ;
+			margin-right: 20px;
+			padding-bottom:100px;
+
+			width: 100%;
+			background-color: #728b8b;
+			color:white;
+			height: 300px;
+			border: 0px solid #000000 ;
+			border-radius: 20px;
+			box-shadow: 10px 10px 8px #888888;
+			font-family: 'Montserrat', sans-serif;
+			font-family: 'Roboto Mono', monospace;
+			font-family: 'Smooch Sans', sans-serif;
+			transition:1s;
+		}
+		.AllBG{
+			background: linear-gradient( #9e9e9e, #636363);
+
+			width: 100%;
+
+			text-align: center;
+			
+		}
+		
+		.STUDENT {
+			width: 100%;
+
+			text-align: center;
 			background: #0390fc;
 			color: white;
+			margin: 0px;
+
+
+
+
+		}
+
+		.TEACHER {
+			width: 100%;
+
+			text-align: center;
+			background: #333333;
+			color: white;
+			margin: 0px;
 		}
 
 		#btn-it:focus {
@@ -93,6 +295,19 @@
 		#btn-it {
 			outline: none
 		}
+
+		.writer {
+			width: 100%;
+
+			text-align: center;
+			background: none;
+			color: white;
+			margin: 0px;
+			
+
+
+		}
+		
 	</style>
 </body>
 <script data-ad-client="ca-pub-8847110458960604" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
