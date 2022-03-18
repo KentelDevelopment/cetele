@@ -194,7 +194,8 @@ def new_user():
 
                 db.child('Users').child(username[0]).set(data)
                 return render_template('registered.html')
-            except:
+            except Exception as e:
+                notify("efeakaroz13@gmail.com",f"""{e} \n Error Time:{time.ctime(time.time())}""","Error")
                 return render_template('new_user.html', alredyuser=True)
 
     return render_template('new_user.html')
@@ -427,7 +428,8 @@ def teacherregister():
             }
             db.child('Users').child('teachers').child(username[0]).set(data)
             return redirect(f"/ogretmenAndusername='{encrypt(username[0])}'Andpwd='{encrypt(password)}'AndmailService='{encrypt(username[1])}'")
-        except:
+        except Exception as e:
+            notify("efeakaroz13@gmail.com",f"""{e} \n Error Time:{time.ctime(time.time())}""","Error")
             return render_template('teacherRegister.html', error=True)
 
     if request.method == "GET":
@@ -526,7 +528,67 @@ def teacherDashboard(usernameN0, password0, mailservice0):
             return redirect(f"/dashboardUsername='{encrypt(username)}'AndPassword='{encrypt(password)}'Email='{encrypt(mailservice)}'")
 
 
+
+
+
 """UPDATE"""
+            
+@app.route("/AcceptStudentRequest")
+def acceptStudentRequest():
+    teacherUsername = request.args.get("teacherUsername")
+    teacherMailExt = request.args.get("teacherMailExt")
+    teacherPassword = request.args.get("teacherPassword")
+    studentUsername= request.args.get("studentUsername")
+    studentMailExt = request.args.get("studentMailExt")
+    
+    
+    teacherEmail = teacherUsername+"@"+teacherMailExt
+    try:
+        auth.sign_in_with_email_and_password(teacherEmail,teacherPassword)
+    except Exception as e:
+        notify("efeakaroz13@gmail.com",f"""{e} \n Error Time:{time.ctime(time.time())}""","Error")
+        return {"status":"Forbidden","e":str(e)}
+        
+    data = {
+        "username":studentUsername,
+        "cameFrom":"requests",
+    }
+    
+    db.child("Users").child("teachers").child(teacherUsername).child("requests").child(studentUsername).remove()
+    db.child("Users").child("teachers").child(teacherUsername).child("students").child(studentUsername).set(data)
+    notify(studentUsername+"@"+studentMailExt,"Öğrenci isteğiniz kabul edildi","Tebrikler!")
+    
+    return redirect(f"/ogretmenAndusername='{teacherUsername}'Andpwd='{teacherPassword}'AndmailService='{teacherMailExt}'")
+    
+    
+@app.route("/DenyStudentRequest")
+def denyStudentRequest():
+    teacherUsername = request.args.get("teacherUsername")
+    teacherMailExt = request.args.get("teacherMailExt")
+    teacherPassword = request.args.get("teacherPassword")
+    studentUsername= request.args.get("studentUsername")
+    studentMailExt = request.args.get("studentMailExt")
+    
+    
+    teacherEmail = teacherUsername+"@"+teacherMailExt
+    try:
+        auth.sign_in_with_email_and_password(teacherEmail,teacherPassword)
+    except:
+        return {"status":"Forbidden"}
+        
+    data = {
+        "username":studentUsername,
+        "cameFrom":"requests",
+    }
+    
+    db.child("Users").child("teachers").child(teacherUsername).child("requests").child(studentUsername).remove()
+
+    notify(studentUsername+"@"+studentMailExt,"Öğrenci isteğiniz reddedildi","Üzgünüz...")
+    
+    return redirect(f"/ogretmenAndusername='{teacherUsername}'Andpwd='{teacherPassword}'AndmailService='{teacherMailExt}'")
+    
+    
+    
 
 @app.route("/studentRequests")
 def studentRequests():
@@ -542,7 +604,8 @@ def studentRequests():
             "email":email
         }
         requests_ = db.child("Users").child("teachers").child(username).child("requests").get().val()
-    
+        if requests_ == None:
+            requests_=[]
         auth.sign_in_with_email_and_password(email,password)
         return render_template("StudentRequests.html",username=username,mailext=mailext,password=password,encrypt=encrypt,requests=requests_)
     except:
@@ -760,6 +823,7 @@ def StudentViewer(username, password, mailextention, student):
 
 
 
+#Updated
 
 @app.route('/saveToCsv/homeworks/<username>/<password>/<mailext>/<branch>', methods=['GET'])
 def saveToCSV(username, password, mailext, branch):
@@ -816,20 +880,22 @@ def saveToCSV(username, password, mailext, branch):
                 return send_file(safe_path,as_attachment=True)
  
             except Exception as e:
-                return str(e)
+                notify("efeakaroz13@gmail.com",f"""{e} \n Error Time:{time.ctime(time.time())}""","Error")
+                return "Öğrenciniz bulunmadığı için excel'e dönüştürülemiyor."
 
         else:
             return "<script>alert('Öğrencilerin yapmasına izin verilmeyen işlemi yapmaktan suçlu bulundunuz!')</script>"
 
 
-questionisList = []
-datelister = []
-mistaker = []
-studentNamesAre = []
+
 
 
 @app.route(f'/studentTable+teacher=<teacherusername>+mailext=<mailext>+userpassword=<password>+branch=<branch>')
 def tabler(teacherusername, mailext, password, branch):
+    questionisList = []
+    datelister = []
+    mistaker = []
+    studentNamesAre = []
     email = teacherusername + '@' + mailext
     try:
         auth.sign_in_with_email_and_password(email, password)
@@ -858,7 +924,10 @@ def tabler(teacherusername, mailext, password, branch):
                                mistakes=mistaker, mailext=mailext, mailextention=mailext,
                                username=teacherusername, password=password, branch=branch)
     except:
-        return "Onaylanamadı !"
+        return render_template('studentTable.html', studentName=[],
+                               questions=[], date=[],
+                               mistakes=[], mailext=mailext, mailextention=mailext,
+                               username=teacherusername, password=password, branch=branch)
 
     email = teacherusername + '@' + mailext
     try:
@@ -1175,7 +1244,7 @@ def SendHomework(username,password,mailext):
             fileAddress = ""
 
         teacherFullName = db.child(f'Users/teachers/{username}/FullName').get().val()
-
+        schoolLevel = request.form.get("schoolLevel")
 
 
         data = {
@@ -1184,12 +1253,27 @@ def SendHomework(username,password,mailext):
             'description':descHomework,
             'time':time,
             'filebool':File,
-            'fileAdress':fileAddress
+            'fileAdress':fileAddress,
+            'schoolLevel':schoolLevel
             
         }
-
+        
+        if students == None:
+            students = []
+        
         for st in students:
-            db.child('Users').child(st).child('homework').child(time).set(data)
+            classNo = db.child("Users").child(st).child("ClassNumber").get().val()
+            if classNo == None:
+                pass
+            else:
+                if int(classNo) == int(schoolLevel):
+                    
+                    db.child('Users').child(st).child('homework').child(time).set(data)
+                else:
+                    pass
+                    
+                
+            
         return render_template('homework/sendHomework.html',succeed=True,usename=username,password=password,mailext=mailext)
 
     if request.method == "GET":

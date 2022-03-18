@@ -92,7 +92,7 @@
 				<div class="card-body">
 					<center>
 						<p>Bu adresi öğrencileriniz ile paylaşın</p><br>
-						<input type="text" value="http://127.0.0.1:1313/request?teacher_username={{username}}&mailext={{mailext}}" class="form-control">
+						<input type="text" value="https://cetele.pythonanywhere.com/request?teacher_username={{username}}&mailext={{mailext}}" class="form-control">
 					</center>
 				</div>
 			</div>
@@ -100,7 +100,7 @@
 			<h2>İstekler</h2>
 			<ul class="list-group" style="margin-left:10%;margin-right:10%;color:black;">
 			  {% for r in requests %}
-			  <li class="list-group-item"><div class="row" style="margin-left:10px"><a style="font-size:20px">{{r}}</a> <div class="col"><button class="btn btn-success">Kabul Et</button></div><div class="col"><button class="btn btn-danger">Reddet</button></div></div></li>
+			  <li class="list-group-item"><div class="row" style="margin-left:10px"><a style="font-size:20px">{{r}}</a> <div class="col"><button class="btn btn-success" onclick="window.location.assign('/AcceptStudentRequest?teacherUsername={{username}}&teacherMailExt={{mailext}}&studentUsername={{r}}&studentMailExt=gmail.com&teacherPassword={{password}}')">Kabul Et</button></div><div class="col"><button class="btn btn-danger" onclick="window.location.assign('/DenyStudentRequest?teacherUsername={{username}}&teacherMailExt={{mailext}}&studentUsername={{r}}&studentMailExt=gmail.com&teacherPassword={{password}}')">Reddet</button></div></div></li>
 			  {% endfor %}
 			  
 			</ul>
