@@ -543,6 +543,7 @@ def acceptStudentRequest():
     
     
     teacherEmail = teacherUsername+"@"+teacherMailExt
+    teacherPassword = request.url.split("teacherPassword=")[1]
     try:
         auth.sign_in_with_email_and_password(teacherEmail,teacherPassword)
     except Exception as e:
@@ -568,7 +569,7 @@ def denyStudentRequest():
     teacherPassword = request.args.get("teacherPassword")
     studentUsername= request.args.get("studentUsername")
     studentMailExt = request.args.get("studentMailExt")
-    
+    teacherPassword = request.url.split("teacherPassword=")[1]
     
     teacherEmail = teacherUsername+"@"+teacherMailExt
     try:
