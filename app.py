@@ -69,7 +69,7 @@ writerAuth = firebaseWriter.auth()
 
 
 
-unknownChars = ["#","?","/","\\"]
+unknownChars = ["#","?","/","\\","+"]
 
 
 
