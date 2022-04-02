@@ -1038,7 +1038,9 @@ def zoomTable(username,password,mailext):
                                 username=username,password=password,mailext=mailext
         )
     except:
-        return "Onaylanamadı !! fakedirsup@gmail.com adresine ulaşın !"
+        return render_template('zoomer/ZoomTable.html',teachers=[],
+                                username=username,password=password,mailext=mailext
+        )
 
 
 """End Zoom Stuff"""
