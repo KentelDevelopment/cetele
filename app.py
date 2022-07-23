@@ -34,14 +34,14 @@ app.register_blueprint(errors)
 
 
 firebaseConfig = {
-    "apiKey": "AIzaSyDFiO7NBou0MBvNY1pELxb3juzeDJbGrVA",
-    "authDomain": "project-cetele.firebaseapp.com",
-    "databaseURL": "https://project-cetele.firebaseio.com",
+    "apiKey": "*",
+    "authDomain": "*",
+    "databaseURL": "*",
     "projectId": "project-cetele",
-    "storageBucket": "project-cetele.appspot.com",
+    "storageBucket": "*",
     "messagingSenderId": "816156403835",
-    "appId": "1:816156403835:web:bfc72d7ff42b1dfebc9ade",
-    "measurementId": "G-F3SF25VM47"
+    "appId": "*",
+    "measurementId": "*"
 }
 firebase = pyrebase.initialize_app(firebaseConfig)
 auth = firebase.auth()
@@ -54,14 +54,14 @@ reciever_email = "efeakaroz@gmail.com"
 password = "gbeqxrdbffzbgjqc"
 #WriterFirebase
 firebaseConfig2 = {
-    "apiKey": "AIzaSyAmmB5tpKCyWUwwOzNymw20XILlVReQ3D0",
-    "authDomain": "cetelewritersupport.firebaseapp.com",
-    "projectId": "cetelewritersupport",
-    "storageBucket": "cetelewritersupport.appspot.com",
+    "apiKey": "*",
+    "authDomain": "_.firebaseapp.com",
+    "projectId": "*",
+    "storageBucket": "*",
     "messagingSenderId": "95012497808",
-    "appId": "1:95012497808:web:e87c1d11e41fc055072b15",
+    "appId": "*",
     "measurementId": "G-FTE96NS71V",
-    "databaseURL":"https://cetelewritersupport-default-rtdb.europe-west1.firebasedatabase.app/"
+    "databaseURL":"*"
 }
 firebaseWriter = pyrebase.initialize_app(firebaseConfig2)
 writerDB = firebaseWriter.database()
